@@ -1,0 +1,81 @@
+﻿
+############################################################## Card pack items
+pack type:
+	name: rara
+	filter: card.rareza != "común"
+pack type:
+	name: común
+	filter: card.rareza == "común"
+pack type:
+	name: dorada
+	filter: card.rareza == "tec. dorada"
+pack type:
+	name: card
+	filter: card.número != ""
+############################################################## Card packs
+pack type:
+	name: sobre de cartas
+	item:
+		name: rara
+		amount: 1
+	item:
+		name: común
+		amount: 8
+pack type:
+	name: sobre de campeón
+	item:
+		name: rara
+		amount: 1
+	item:
+		name: común
+		amount: 2
+pack type:
+	name: sobre de duelista
+	item:
+		name: rara
+		amount: 1
+	item:
+		name: común
+		amount: 5
+pack type:
+	name: serie dorada
+	item:
+		name: dorada
+		amount: 3
+	item:
+		name: común
+		amount: 22
+pack type:
+	name: sobre de película
+	item:
+		name: rara
+		amount: 3
+	item:
+		name: común
+		amount: 5
+pack type:
+	name: sobre premium
+	item:
+		name: rara
+		amount: 5
+pack type:
+	name: sobre de torneo
+	item:
+		name: card
+		amount: 3
+pack type:
+	name: rara adicional
+	item:
+		name: rara
+pack type:
+	name: común adicional
+	item:
+		name: común
+pack type:
+	name: dorada adicional
+	item:
+		name: dorada
+pack type:
+	name: card adicional
+	item:
+		name: card

@@ -1,0 +1,43 @@
+﻿
+############################################################## Word lists
+
+word list:
+	name: monster
+	word: Aqua
+	word: Bestia
+	word: Guerrero-Bestia
+	word: Dinosaurio
+	word: Bestia Divina
+	word: Dragón
+	word: Hada
+	word: Demonio
+	word: Pez
+	word: Insecto
+	word: Dragón Legendario
+	word: Máquina
+	word: Planta
+	word: Piro
+	word: Pyesquico
+	word: Reptil
+	word: Roca
+	word: Serpiente Marina
+	word: Lanzador de Conjuros
+	word: Trueno
+	word: Guerrero
+	word: Bestia Alada
+	word: Zombi
+word list:
+	name: card
+	word: Sincronía Oscura
+	word: Sincronía Cantante
+	word: Efecto
+	word: Fusión
+	word: Géminis
+	word: Ritual
+	word: Espíritu
+	word: Sincronía
+	word: Toon
+	word: Cantante
+	word: Unión
+	word: Xyz
+	word: Péndulo

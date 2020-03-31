@@ -1,0 +1,41 @@
+﻿
+############################################################## Set fields
+set field:
+	type: info
+	name: Información del set
+set field:
+	type: text
+	name: título
+	description: Esta información no aparecerá en la carta.
+set field:
+	type: text
+	name: código
+	description: Se recomienda solo 3 dígitos en mayúscula. Aparecerá antes del número de la carta. ej.: LOB-XX101
+set field:
+	type: text
+	name: idioma
+	description: Recomendado 2 - 3 dígitos en mayúsculas. Aparecerán antes del número de la tarjeta, después del código. ej.: XXX-ES101
+set field:
+	type: text
+	name: descripción
+	multi line: true
+	description: Esta información no aparecerá en la carta.
+set field:
+	type: text
+	name: edición
+	description: Al editar esto se establecerá una edición para todas las cartas y aparecerá en la barra de edición debajo de la ilustración. ej.-> EDICIÓN LIMITADA
+set field:
+	type: text
+	name: copyright
+	description: Información sobre los derechos de autor. Esto no aparecerá en carta.
+set field:
+	type: boolean
+	name: los dioses tienen efectos
+	description: ¿Deberían las cartas de dioses tener efectos?
+	initial: yes
+############################# Default style
+default set style:
+	título:
+		padding left: 2
+		font:
+			size: 16

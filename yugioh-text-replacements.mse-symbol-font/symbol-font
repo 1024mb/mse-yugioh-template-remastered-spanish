@@ -1,0 +1,56 @@
+﻿mse version: 2.0.0
+version: 2014-03-11
+short name: Text Replacements
+position hint: 003
+icon: dot.png
+installer group: Yugioh/Symbol Fonts/Text Replacements
+# Symbol font for missing characters
+
+image font size: 16
+horizontal space: 2
+symbol:
+	code: [
+	image: leftbracket.png
+symbol:
+	code: ]
+	image: rightbracket.png
+symbol:
+	code: @
+	image: infinity.png
+	image font size: 25
+symbol:
+	code: ?
+	image: qmark.png
+	image font size: 32
+symbol:
+	code: *
+	image: dot.png
+symbol:
+	code: 1
+	image: 1.png
+symbol:
+	code: 2
+	image: 2.png
+symbol:
+	code: 3
+	image: 3.png
+symbol:
+	code: 4
+	image: 4.png
+symbol:
+	code: 5
+	image: 5.png
+
+##############################################################
+# Insert-symbol menu
+insert symbol menu:
+	item: [
+	item: ]
+	item: @
+	item: ?
+	item: *
+	item: 1
+	item: 2
+	item: 3
+	item: 4
+	item: 5

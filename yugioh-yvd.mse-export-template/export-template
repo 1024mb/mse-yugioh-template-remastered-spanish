@@ -1,0 +1,82 @@
+﻿mse version: 2.0.0
+short name: YVD
+full name: Plugin Exporter
+position hint: 001
+icon: icon.png
+version: 2020-03-31
+installer group: Yugioh/Export/YVD
+
+depends on:
+	package: yugioh.mse-game
+	version: 2020-03-31
+
+game: yugioh
+file type: *.txt|*.txt|*.*|*.*
+create directory: true
+
+# By Innuendo and Pichoro
+# Based on code by Idle Muse, Seeonee
+
+# Translated by 1024mb
+
+option field:
+	type: choice
+	name: ¡Recuerda!
+	choice: ¡Tendrás que copiar los datos creados en el .txt a tu archivo .sets para YVD!
+option field:
+	type: choice
+	name: ¡Observa!
+	choice: ¡Recuerda poner la carpeta de imágenes en la carpeta de imágenes de YVD!
+option field:
+	type: choice
+	name: ¡Revisa!
+	choice: ¿Escribiste un código en la pestaña del set?  ¡Tienes que hacerlo!
+script:
+	# remove any line breaks from the rules text
+	rules_filter := replace@(match:"\n", replace:" ")
+	# filter out everything but stars from the level line
+	level_star_filter := replace@(match:"<sym-auto>", replace:"")+
+		replace@(match:"</sym-auto>", replace:"")+
+		replace@(match:"!", replace:"")+
+		replace@(match:"[+]", replace:"")+
+		replace@(match:"&", replace:"")+
+		replace@(match:"$", replace:"")+
+		replace@(match:"#", replace:"")+
+		replace@(match:" ", replace:"")+
+		replace@(match:"[0-9]", replace:"")+
+		replace@(match:"[a-z]", replace:"")+
+		replace@(match:"[A-Z]", replace:"")
+	# counts stars by breaking them into a list and seeing how long the list is
+	level_count := {
+		if not is_monster() then level_star_filter(card.nivel)
+		else number_of_items(in: level_star_filter(card.nivel))
+	}
+	# Checks for each of the sub types
+	nonmonster_level_filter := { if contains(input, match:"%") then "Continuo"
+		+if contains(input, match:"!") then "Contador"
+		+if contains(input, match:"+") then "Equipo"
+		+if contains(input, match:"&") then "Campo"
+		+if contains(input, match:"$") then "Rápido"
+		+if contains(input, match:"#") then "Ritual"
+	}
+	# remove spaces from things
+	no_spaces := replace@(match:" ", replace:"")
+	# if is a monster, print tipo de monstruo.  if not, print card type
+	card_type_filter := {
+		if not is_monster() then to_title(card.tipo_de_carta)
+		else no_spaces(card.tipo_de_monstruo) }
+	write_card := {"|"+card.nombre+"|"
+		+pos_of_card()+"|"
+		+set.código+"|"
+		+card_type_filter()+"|"
+		+to_title(card.atributo)+"|"
+		+level_count()+"|"
+		+nonmonster_level_filter(card.nivel)+"|"
+		+card.ataque+"|"
+		+card.defensa+"|"
+		+rules_filter(card.descripción)+"|"
+		+"\n"
+		}
+	write_cards := to_text(for each card in sort_list(cards, order_by: {card.número}) do write_card())
+	write_images := for each card in sort_list(cards, order_by: {card.número}) do write_image_file(card.ilustración, file:"{to_lower(no_spaces(card.nombre))}.png", width: 40, height: 40)
+	to_string(write_cards)
