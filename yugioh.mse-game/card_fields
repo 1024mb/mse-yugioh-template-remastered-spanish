@@ -113,7 +113,7 @@ card field:
 card field:
 	type: text
 	name: nivel
-	description: `=] * = estrella, % = continuo, ! = contador, + = equipo, & = campo, $ = rápido, # = ritual
+	description: `=] * = estrella, % = continua, ! = contraefecto, + = equipo, & = campo, $ = juego rápido, # = ritual
 	script: level_filter(value)
 
 ############################# Image

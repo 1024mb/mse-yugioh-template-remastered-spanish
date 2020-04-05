@@ -37,11 +37,11 @@ script:
 		else number_of_items(in: level_star_filter(card.nivel))
 	}
 	# Checks for each of the sub types
-	nonmonster_level_filter := { if contains(input, match:"%") then "Continuo"
-		+if contains(input, match:"!") then "Contador"
+	nonmonster_level_filter := { if contains(input, match:"%") then "Continua"
+		+if contains(input, match:"!") then "Contraefecto"
 		+if contains(input, match:"+") then "Equipo"
 		+if contains(input, match:"&") then "Campo"
-		+if contains(input, match:"$") then "Rápido"
+		+if contains(input, match:"$") then "Juego Rápido"
 		+if contains(input, match:"#") then "Ritual"
 	}
 	# remove spaces from things
