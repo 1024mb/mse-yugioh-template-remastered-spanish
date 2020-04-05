@@ -11,10 +11,10 @@ depends on:
 	version: 2020-03-31
 depends on:
 	package: yugioh-standard-levels.mse-symbol-font
-	version: 2008-10-27
+	version: 2020-03-31
 depends on:
 	package: yugioh-text-replacements.mse-symbol-font
-	version: 2008-08-11
+	version: 2014-03-11
 
 card width: 697
 card height: 1016
