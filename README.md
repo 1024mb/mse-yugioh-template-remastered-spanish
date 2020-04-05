@@ -35,3 +35,8 @@ If I find the time I will translate this readme into Spanish, I'm lazy af :grin:
     - Initial work.
     - Finished Standard template.
     - Added resources with better quality.
+
+## Known Glitches <small>(yeah, you read it right)</small>
+
+- It's better to set zoom to 90% so the full card can be seen while editing.
+- Levels (Stars, Spell/Trap type icons) may be shown by MSE as if they were very close to each other (this is more notorious with Stars because you usually add more than just one). Don't mind this, they are with the correct separation, if you want to see how the card will really look you have to set the zoom to 200% or just export the card and zoom the exported PNG with your favorite viewer.
