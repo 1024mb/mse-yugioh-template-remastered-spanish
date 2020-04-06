@@ -82,7 +82,7 @@ card style:
 
 	nombre:
 		left: 56
-		top :
+		top:
 			script: if card.tipo_de_carta == "carta de trampa" then 55 else if card.tipo_de_carta == "carta mágica" then 51 else 54
 		width: 498
 		height: 62
@@ -108,7 +108,7 @@ card style:
 
 	atributo:
 		left: 563
-		top : 48
+		top: 48
 		width: 90
 		height: 72
 		z index: 2
@@ -127,7 +127,7 @@ card style:
 
 	nivel:
 		left: { if card.tipo_de_carta == "carta de trampa" then 83 else if card.tipo_de_carta == "carta mágica" then 74 else 78 }
-		top : { if card.tipo_de_carta == "carta de trampa" then 140 else if card.tipo_de_carta == "carta mágica" then 135 else 132 }
+		top: { if card.tipo_de_carta == "carta de trampa" then 140 else if card.tipo_de_carta == "carta mágica" then 135 else 132 }
 		height: 53
 		width: { if is_nmonster() then 522 else 532 }
 		z index: 2
@@ -156,7 +156,7 @@ card style:
 
 	tipo de monstruo:
 		left: 79
-		top : 765
+		top: 765
 		width: { card_style.tipo_de_monstruo.content_width + 6 }
 		height: 29
 		alignment: middle left
@@ -176,7 +176,7 @@ card style:
 
 	número:
 		left: 401
-		top : 716
+		top: 716
 		width: 210
 		height: 37
 		z index: 2
@@ -204,7 +204,7 @@ card style:
 	descripción:
 		left:
 			script: if is_nmonster() then 72 else 68
-		top :
+		top:
 			script: if is_nmonster() then 763 else 791
 		width:
 			script: if is_nmonster() then 562 else 561
@@ -274,7 +274,7 @@ card style:
 
 	código del juego:
 		left: 48
-		top : 959
+		top: 959
 		width: 125
 		height: 34
 		alignment: middle left
@@ -287,7 +287,7 @@ card style:
 
 	rareza:
 		left: 632
-		top : 963
+		top: 963
 		height: 44
 		width: 44
 		z index: 2
@@ -298,7 +298,7 @@ card style:
 
 	copyright:
 		left: 339
-		top : 960
+		top: 960
 		width: 276
 		height: 34
 		z index: 4
@@ -346,7 +346,7 @@ extra card style:
 
 	bar:
 		left: 72
-		top : 922
+		top: 922
 		height: 2.5
 		width: 553
 		z index: 4
@@ -357,7 +357,7 @@ extra card style:
 
 	leftbracket:
 		left: { if card.tipo_de_carta == "carta de trampa" then (590 - card_style.nivel.content_width) else if card.tipo_de_carta == "carta mágica" then (582 - card_style.nivel.content_width) else 69 }
-		top : { if card.tipo_de_carta == "carta de trampa" then 150 else if card.tipo_de_carta == "carta mágica" then 145 else 766 }
+		top: { if card.tipo_de_carta == "carta de trampa" then 150 else if card.tipo_de_carta == "carta mágica" then 145 else 766 }
 		height: { if is_nmonster() then 32 else 26 }
 		width: { if is_nmonster() then 10 else 8 }
 		z index: 2
@@ -367,7 +367,7 @@ extra card style:
 
 	rightbracket:
 		left: { if card.tipo_de_carta == "carta de trampa" then 609 else if card.tipo_de_carta == "carta mágica" then 601 else (card_style.tipo_de_monstruo.content_width + 82) }
-		top : { if card.tipo_de_carta == "carta de trampa" then 150 else if card.tipo_de_carta == "carta mágica" then 145 else 766 }
+		top: { if card.tipo_de_carta == "carta de trampa" then 150 else if card.tipo_de_carta == "carta mágica" then 145 else 766 }
 		height: { if is_nmonster() then 32 else 26 }
 		width: { if is_nmonster() then 10 else 8 }
 		z index: 4

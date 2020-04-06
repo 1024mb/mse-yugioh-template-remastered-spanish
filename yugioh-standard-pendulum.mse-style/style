@@ -1,0 +1,443 @@
+﻿mse version: 2.0.0
+game: yugioh
+short name: Péndulo
+installer group: Yugioh/Standard/Pendulum
+icon: card-sample.png
+position hint: 02
+
+version: 2020-04-06
+depends on:
+	package: yugioh.mse-game
+	version: 2020-03-31
+depends on:
+	package: yugioh-standard-levels.mse-symbol-font
+	version: 2020-03-31
+depends on:
+	package: yugioh-text-replacements.mse-symbol-font
+	version: 2014-03-11
+
+card width: 697
+card height: 1016
+card dpi: 300
+############################################################## Extra scripts
+init script:
+	
+	card_forma := { "péndulo" }
+	
+############################################################## Extra style
+styling field:
+	type: choice
+	name: alineamiento de reglas
+	description: ¿Debería justificarse el texto de las reglas? ADVERTENCIA: La justificación no es perfecta.
+	initial: sin justificar
+	choice: sin justificar
+	choice: justificado
+
+############################################################## Card fields
+
+card style:
+
+	############################# Background stuff
+
+	tipo de carta:
+		left: 0
+		top: 0
+		width: 697
+		height: 1016
+		z index: -2
+		render style: image
+		popup style: in place
+		image: card-pendulum.png
+
+	láminas:
+		left: { if card.rareza=="rara paralela" then 0 else 43 }
+		top: { if card.rareza=="rara paralela" then 0 else 179 }
+		width: { if card.rareza=="rara paralela" then 697 else 614 }
+		height: { if card.rareza=="rara paralela" then 1016 else 462 }
+		z index: 5
+		
+		# angle: { if card.rareza!="rara paralela" then 90 }
+		# thought on rotating the image because the illustration space is not the same as the other card types
+		# so the foil doesn't properly fit but if I rotate then the colors would be messed up so is best to just
+		# change the width and height of the foils.
+		
+		render style: image
+		mask: { if card.rareza == "rara paralela" then nil else "mask_pendulum.png" }
+		image:
+			script:	if card.rareza=="súper rara" then "superfoil.png" else
+				if card.rareza=="ultra rara" then "superfoil.png" else
+				if card.rareza=="rara secreta" then "secretfoil.png" else
+				if card.rareza=="rara definitiva" then "superfoil.png" else
+				if card.rareza=="rara paralela" then "parallelfoil.png" else
+				if card.rareza=="promo" then "superfoil.png" else nil
+
+	############################# Name line
+
+	nombre:
+		left: 60
+		top: 54
+		width: 494
+		height: 62
+		alignment: middle shrink-overflow
+		padding bottom: 0
+		z index: 2
+		font:
+			name: MatrixRegularSmallCaps
+			size: 55
+			color:
+				script: if card.rareza=="rara" then rgb(230,230,230)
+				else if card.rareza=="rara secreta" then rgb(230,230,230)
+				else if card.rareza=="promo" then rgb(230,230,230)
+				else if card.rareza=="ultra rara" then rgb(216,199,53)
+				else if card.rareza=="rara definitiva" then rgb(60,0,0)
+				else if card.rareza=="rara paralela" then rgb(216,199,53)
+				else if card.tipo_de_carta=="monstruo de sincronía oscura" then rgb(255,255,255)
+				else if card.tipo_de_carta=="monstruo xyz" then rgb(255,255,255)
+				else if is_nmonster() then rgb(255,255,255)
+				else rgb(230,230,230)
+
+	atributo:
+		left: 553
+		top: 46
+		width: 90
+		height: 72
+		z index: 2
+		render style: image
+		popup style: in place
+		choice images:
+			tierra: earth.png
+			agua: water.png
+			fuego: fire.png
+			viento: wind.png
+			luz: light.png
+			oscuridad: dark.png
+			divinidad: divine.png
+			mágica: spell.png
+			trampa: trap.png
+
+	nivel:
+		left: 74
+		top: 128
+		height: 40
+		width: 532
+		z index: 2
+		alignment: middle right
+		font:
+			name: MatrixBoldSmallCaps
+			size: 30
+			color: black
+		symbol font:
+			name: yugioh-standard-levels
+			alignment: middle center
+			scale down to: 1
+			size: 6.5
+
+	############################# Image
+
+	ilustración:
+		left: 43
+		top: 179
+		width: 614
+		height: 462
+		z index: 1
+		mask: mask_pendulum.png
+
+	############################# Card type
+
+	tipo de monstruo:
+		left: 65
+		top: 765
+		width: { card_style.tipo_de_monstruo.content_width + 6 }
+		height:  29
+		alignment: middle left
+		z index: 2
+		font:
+			name: MatrixBoldSmallCaps
+			size: 23
+			color: black
+		symbol font:
+			name: yugioh-text-replacements
+			alignment: middle center
+			size: 11.5
+
+	############################# Edition and Card ID
+
+	número:
+		left: { card_style.número.content_width - 40 }
+		top: 920
+		width: 100
+		height: 40
+		z index: 2
+		visible: { if match(card.edición, match: ".") then false else true }
+		alignment: top right
+		font:
+			name: Palatino Linotype
+			size: 18.5
+			color: black
+
+	edición:
+		left: 60
+		top: { if contains (card.edición, match: "DUEL TERMINAL") then 928 else 920 }
+		width: { if match(card.edición, match:".") then (card_style.edición.content_width + 10) else 15 }
+		height: 37
+		z index: 2
+		font:
+			name: { if card.edición=="DUEL TERMINAL" then "BankGothic Md BT" else "Palatino Linotype Bold" }
+			size: { if card.edición=="DUEL TERMINAL" then "16" else "17.5" }
+			color: black
+
+	############################# Text box
+
+	descripción:
+		left: 52
+		top: 791
+		width: 600
+		height: 133
+		font:
+			name: MatrixBook
+			size: 17
+			scale down to: 8.5
+			color: black
+		symbol font:
+			name: yugioh-text-replacements
+			size: 8
+		alignment: { if styling.alineamiento_de_reglas=="justificado" then "top left justify" else "top left" }
+		z index: 3
+		padding left: 0
+		padding top: 0.5
+		padding right: 0
+		padding bottom: 0.5
+		line height hard: 1.0
+		line height line: 1.0
+		line height soft: 1.0
+		line height hard max: 1.1
+		line height line max: 1.1
+
+	############################# Attack/Defense
+
+	ataque:
+		left: 431
+		top: 926
+		width: 70
+		height: 30
+		z index: 2
+		alignment: right middle
+		font:
+			name: MatrixBoldSmallCaps
+			italic name: Matrix-Bold
+			size: 23.5
+			color: black
+		symbol font:
+			name: yugioh-text-replacements
+			alignment: middle center
+			size: 8.5
+
+	defensa:
+		z index: 4
+		left: 574
+		top: 926
+		width: 70
+		height: 30
+		z index: 2
+		alignment: right middle
+		font:
+			name: MatrixBoldSmallCaps
+			italic name: Matrix-Bold
+			size: 23.5
+			color: black
+		symbol font:
+			name: yugioh-text-replacements
+			alignment: middle center
+			size: 8.5
+
+	############################# Pendulum Fields
+
+	péndulo_azul:
+		z index: 4
+		top: 697
+		left: 46
+		width: 48
+		height: 35
+		alignment: middle center
+		font:
+			name: MatrixBoldSmallCaps
+			size: 28
+			color: black
+
+	péndulo_rojo:
+		z index: 4
+		top: 697
+		left: 610
+		width: 48
+		height: 35
+		alignment: middle center
+		font:
+			name: MatrixBoldSmallCaps
+			size: 28
+			color: black
+
+	péndulo_-_texto:
+		z index: 4
+		top: 645
+		left: 100
+		width: 502
+		height: 105
+		font:
+			name: MatrixBook
+			size: 15
+			scale down to: 4
+			color: black
+		symbol font:
+			name: yugioh-text-replacements
+			alignment: middle center
+			size: 6.5
+		alignment: { if styling.alineamiento_de_reglas=="justificado" then "top left justify" else "top left" }
+		z index: 3
+		padding left: 0.5
+		padding top: 0.5
+		padding right: 0.5
+		padding bottom: 0.5
+		line height hard: 1.0
+		line height line: 1.0
+		line height soft: 0.9
+		line height hard max: 1.1
+		line height line max: 1.1
+
+	############################# Card sorting / numbering
+	############################# Copyright stuff
+
+	código del juego:
+		left: 30
+		top: 960
+		width: 125
+		height: 34
+		alignment: middle left
+		z index: 2
+		font:
+			name: Palatino Linotype
+			size: 15
+			color: black
+
+	rareza:
+		left: 644
+		top: 961
+		height: 37
+		width: 37
+		z index: 3
+		render style: image
+		popup style: in place
+		image: 
+			script: if card.edición!="" then "cornerfirst.png" else "cornerunlimited.png"
+
+	copyright:
+		left: 398
+		top: 963
+		width: 220
+		height: 30
+		z index: 4
+		alignment: middle right
+		font:
+			name: Palatino Linotype
+			size: 15
+			color: black
+
+############################################extra card field:
+
+extra card field:
+	type: choice
+	name: bar
+	choice: bar
+	editable: false
+extra card field:
+	type: choice
+	name: leftbracket
+	choice: lbracket
+	editable: false
+extra card field:
+	type: choice
+	name: rightbracket
+	choice: rbracket
+	editable: false
+extra card field:
+	type: text
+	name: atkoverlay
+	default: "ATK"
+	editable: false
+extra card field:
+	type: text
+	name: atkslashoverlay
+	default: "/"
+	editable: false
+extra card field:
+	type: text
+	name: defoverlay
+	default: "DEF/"
+	editable: false
+
+extra card style:
+
+	bar:
+		left: 53
+		top: 922
+		height: 2.5
+		width: 593
+		z index: 4
+		render style: image list
+		choice images:
+			bar: bar.png
+
+	leftbracket:
+		left: 54
+		top: 765
+		height: 25
+		width: 8
+		z index: 2
+		render style: image list
+		choice images:
+			lbracket: /yugioh-standard-levels.mse-symbol-font/leftbracket.png
+
+	rightbracket:
+		left: { card_style.tipo_de_monstruo.content_width + 67 }
+		top: 765
+		height: 25
+		width: 8
+		z index: 4
+		render style: image list
+		choice images:
+			rbracket: /yugioh-standard-levels.mse-symbol-font/rightbracket.png
+
+	atkoverlay:
+		left: 334
+		top: 924
+		width: 91
+		height: 34
+		z index: 1
+		alignment: right middle
+		font:
+			name: MatrixBoldSmallCaps
+			size: 23.5
+			color: black
+
+	atkslashoverlay:
+		left: 346
+		top: 924
+		width: 91
+		height: 34
+		z index: 1
+		alignment: right middle
+		font:
+			name: MatrixBoldSmallCaps
+			size: 23.5
+			color: black
+
+	defoverlay:
+		left: 489
+		top: 924
+		width: 91
+		height: 34
+		z index: 1
+		alignment: right middle
+		font:
+			name: MatrixBoldSmallCaps
+			size: 23.5
+			color: black
