@@ -257,7 +257,7 @@ card field:
 	name: rareza
 	show statistics: true
 	choice: común
-	choice: raro
+	choice: rara
 	choice: súper rara
 	choice: ultra rara
 	choice: rara secreta
