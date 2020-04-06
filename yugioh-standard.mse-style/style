@@ -217,8 +217,7 @@ card style:
 			color: rgb(0,0,0)
 		symbol font:
 			name: yugioh-text-replacements
-			alignment: justificado
-			size: 8
+			size: 7
 		alignment: { if styling.alineamiento_de_reglas=="justificado" then "top left justify" else "top left" }
 		z index: 2
 		padding left: 1
