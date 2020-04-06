@@ -72,7 +72,7 @@
 		type_over_list +
 		{ "<word-list-card>{input}</word-list-card>" }
 	
-	# Determine type of carta
+	# Determine type of card
 	tipo_de_carta := {
 		if	card.atributo	== "mágica"								then "carta mágica"
 		else if	contains(card.nivel, match:"Carta Mágica")						then "carta mágica"
@@ -93,13 +93,13 @@
 		else if	contains(card.tipo_de_monstruo, match:"Unión")						then "monstruo de efecto"
 		else                                         	 							"monstruo normal"
 	}
-	# Default 'attribute' of carta
+	# Default 'attribute' of card
 	atributo := {
 		if      is_spell_card() then "Mágica"
 		else if is_trap_card()  then "Trampa"
 		else                         "ninguno"
 	}
-	# Default foil for a carta
+	# Default foil for a card
 	lámina := {
 		if	card.rareza == "súper rara"	then "imagen holográfica"
 		else if card.rareza == "ultra rara"	then "imagen holográfica"
@@ -111,7 +111,7 @@
 		else					     "ninguno"
 	}
 	
-	############### Type of carta
+	############### Type of card
 	
 	card_forma := { "normal" }
 	

@@ -19,8 +19,10 @@ depends on:
 card width: 697
 card height: 1016
 card dpi: 300
+
 ############################################################## Extra scripts
 ############################################################## Extra style
+
 styling field:
 	type: choice
 	name: alineamiento de reglas
@@ -28,9 +30,13 @@ styling field:
 	initial: sin justificar
 	choice: sin justificar
 	choice: justificado
+
 ############################################################## Card fields
+
 card style:
+
 	############################# Background stuff
+
 	tipo de carta:
 		left: 0
 		top: 0
@@ -54,7 +60,7 @@ card style:
 			carta mágica: card-spell.png
 			carta de trampa: card-trap.png
 			monstruo xyz: card-xyz.png
-			
+
 	láminas:
 		left: { if card.rareza=="rara paralela" then 0 else if card.rareza=="tec. dorada" then 0 else if is_trap_card() then 103 else 97 }
 		top: { if card.rareza=="rara paralela" then 0 else if card.rareza=="tec. dorada" then 0 else if is_trap_card() then 206 else 202 }
@@ -71,7 +77,9 @@ card style:
 				if card.rareza=="rara paralela" then "parallelfoil.png" else
 				if card.rareza=="tec. dorada" then "goldfoil.png" else
 				if card.rareza=="promo" then "superfoil.png" else nil
+
 	############################# Name line
+
 	nombre:
 		left: 56
 		top :
@@ -97,6 +105,7 @@ card style:
 				else if card.tipo_de_carta=="monstruo xyz" then rgb(255,255,255)
 				else if is_nmonster() then rgb(255,255,255)
 				else rgb(0,0,0)
+
 	atributo:
 		left: 563
 		top : 48
@@ -115,6 +124,7 @@ card style:
 			divinidad: divine.png
 			mágica: spell.png
 			trampa: trap.png
+
 	nivel:
 		left: { if card.tipo_de_carta == "carta de trampa" then 83 else if card.tipo_de_carta == "carta mágica" then 74 else 78 }
 		top : { if card.tipo_de_carta == "carta de trampa" then 140 else if card.tipo_de_carta == "carta mágica" then 135 else 132 }
@@ -132,14 +142,18 @@ card style:
 			alignment: middle center
 			scale down to: 1
 			size: 7.5
+
 	############################# Image
+
 	ilustración:
 		left: { if is_trap_card() then 103 else 97 }
 		top: { if is_trap_card() then 206 else 202 }
 		width: 498
 		height: 502
 		z index: 1
+
 	############################# Card type
+
 	tipo de monstruo:
 		left: 79
 		top : 765
@@ -157,7 +171,9 @@ card style:
 			alignment: middle center
 			size: 11.5
 		visible: script: if is_nmonster() then false else true
+
 	############################# Edition and Card ID
+
 	número:
 		left: 401
 		top : 716
@@ -170,6 +186,7 @@ card style:
 			size: 19.5
 			color: 
 				script: if card.tipo_de_carta=="monstruo de sincronía oscura" or card.tipo_de_carta=="monstruo xyz" then rgb(255,255,255) else rgb(0,0,0)
+
 	edición:
 		left: { if is_trap_card() then 88 else 83 }
 		top: { if is_trap_card() then 713 else 714 }
@@ -181,7 +198,9 @@ card style:
 			size: { if is_trap_card() then 22 else 22.5 }
 			color: 
 				script: if card.tipo_de_carta=="monstruo de sincronía oscura" or card.tipo_de_carta=="monstruo xyz" then rgb(255,255,255) else rgb(0,0,0)
+
 	############################# Text box
+
 	descripción:
 		left:
 			script: if is_nmonster() then 72 else 68
@@ -211,7 +230,9 @@ card style:
 		line height soft: 1.0
 		line height hard max: 1.0
 		line height line max: 1.0
+
 	############################# Attack/Defense
+
 	ataque:
 		left: 421
 		top: 927
@@ -229,6 +250,7 @@ card style:
 			alignment: middle center
 			size: 12
 		visible: script: if is_nmonster() then false else true
+
 	defensa:
 		z index: 4
 		left: 554
@@ -247,8 +269,10 @@ card style:
 			alignment: middle center
 			size: 12
 		visible: script: if is_nmonster() then false else true
+
 	############################# Card sorting / numbering
 	############################# Copyright stuff
+
 	código del juego:
 		left: 48
 		top : 959
@@ -261,6 +285,7 @@ card style:
 			size: 15
 			color: 
 				script: if card.tipo_de_carta=="monstruo de sincronía oscura" or card.tipo_de_carta=="monstruo xyz" then rgb(255,255,255) else rgb(0,0,0)
+
 	rareza:
 		left: 632
 		top : 963
@@ -271,6 +296,7 @@ card style:
 		popup style: in place
 		image: 
 			script: if card.rareza=="súper rara" then "cornerunlimited.png" else if card.rareza=="rara secreta" then "cornerunlimited.png" else "cornerfirst.png"
+
 	copyright:
 		left: 339
 		top : 960
@@ -283,7 +309,9 @@ card style:
 			size: 15
 			color: 
 				script: if card.tipo_de_carta=="monstruo de sincronía oscura" or card.tipo_de_carta=="monstruo xyz" then rgb(255,255,255) else rgb(0,0,0)
+
 ############################################extra card field:
+
 extra card field:
 	type: choice
 	name: bar
@@ -314,7 +342,9 @@ extra card field:
 	name: defoverlay
 	default: "DEF/"
 	editable: false
+
 extra card style:
+
 	bar:
 		left: 72
 		top : 922
@@ -325,6 +355,7 @@ extra card style:
 		choice images:
 			bar: bar.png
 		visible: script: if is_nmonster() then false else true
+
 	leftbracket:
 		left: { if card.tipo_de_carta == "carta de trampa" then (590 - card_style.nivel.content_width) else if card.tipo_de_carta == "carta mágica" then (582 - card_style.nivel.content_width) else 69 }
 		top : { if card.tipo_de_carta == "carta de trampa" then 150 else if card.tipo_de_carta == "carta mágica" then 145 else 766 }
@@ -334,6 +365,7 @@ extra card style:
 		render style: image list
 		choice images:
 			lbracket: /yugioh-standard-levels.mse-symbol-font/leftbracket.png
+
 	rightbracket:
 		left: { if card.tipo_de_carta == "carta de trampa" then 609 else if card.tipo_de_carta == "carta mágica" then 601 else (card_style.tipo_de_monstruo.content_width + 82) }
 		top : { if card.tipo_de_carta == "carta de trampa" then 150 else if card.tipo_de_carta == "carta mágica" then 145 else 766 }
@@ -343,6 +375,7 @@ extra card style:
 		render style: image list
 		choice images:
 			rbracket: /yugioh-standard-levels.mse-symbol-font/rightbracket.png
+
 	atkoverlay:
 		left: 323
 		top: 924
@@ -356,6 +389,7 @@ extra card style:
 			size: 23.5
 			color: rgb(0,0,0)
 		visible: script: if is_nmonster() then false else true
+
 	atkslashoverlay:
 		left: 336
 		top: 924
@@ -369,6 +403,7 @@ extra card style:
 			size: 23.5
 			color: rgb(0,0,0)
 		visible: script: if is_nmonster() then false else true
+
 	defoverlay:
 		left: 469
 		top: 924
