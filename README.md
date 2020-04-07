@@ -51,6 +51,14 @@ If I find the time I will translate this readme into Spanish, I'm lazy af :grin:
 - Levels (Stars, Spell/Trap type icons) may be shown by MSE as if they were very close to each other (this is more notorious with Stars because you usually add more than just one). Don't mind this, they are with the correct separation, if you want to see how the card will really look you have to set the zoom to 200% or just export the card and zoom the exported PNG with your favorite viewer.
 - Words are not splitting when they are too large to fit in the same line, instead the whole word is being pushed to the next line and a big empty space is left. I haven't looked much into this so I don't know if it can be fixed or if it's hard-coded into MSE so in the mean time you should separate the words manually with an space.
 
+### Notes :notebook:
+
+There are some bugs that belong to MSE itself and has nothing to do with the template thus I can't fix/change them from said templates.
+
+- There is a text "double click to load image" that can't be translated, I tried looking for it on any other file but it isn't there so it must be on the source code of MSE.
+- If you try to export and choose "Export All Images" and then pick "Custom Selection" and then proceed to select the cards you will face two errors, to fix them you have to go to "**\<mse-installation-dir\>**\\resource\\" and rename the file *"selected\_yes.png"* to *"selected.png"* and the file *"selected_no.png"* to *"deselected.png"*.
+
+
 ## Make sure to install the [required fonts](https://github.com/1024mb/mse-yugioh-template-remastered-spanish/tree/master/Fonts)
 
 <br>
