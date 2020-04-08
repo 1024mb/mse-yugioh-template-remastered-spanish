@@ -70,13 +70,13 @@ card style:
 		render style: image
 		popup style: in place
 		image:
-			script:	if card.rareza=="súper rara"		then "superfoil.png" else
-					if card.rareza=="ultra rara"		then "superfoil.png" else
-					if card.rareza=="rara secreta"		then "secretfoil.png" else
-					if card.rareza=="rara definitiva"	then "superfoil.png" else
-					if card.rareza=="rara paralela"		then "parallelfoil.png" else
-					if card.rareza=="tec. dorada"		then "goldfoil.png" else
-					if card.rareza=="promo"				then "superfoil.png" else nil
+			script:	if card.rareza=="súper rara"		then "superfoil.png"	else
+					if card.rareza=="ultra rara"		then "superfoil.png"	else
+					if card.rareza=="rara secreta"		then "secretfoil.png"	else
+					if card.rareza=="rara definitiva"	then "superfoil.png"	else
+					if card.rareza=="rara paralela"		then "parallelfoil.png"	else
+					if card.rareza=="tec. dorada"		then "goldfoil.png"		else
+					if card.rareza=="promo"				then "superfoil.png"	else nil
 
 	############################# Name line
 
