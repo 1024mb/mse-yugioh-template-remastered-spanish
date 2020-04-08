@@ -50,26 +50,26 @@ card style:
 		image: card-pendulum.png
 
 	láminas:
-		left: { if card.rareza=="rara paralela" then 0 else 43 }
-		top: { if card.rareza=="rara paralela" then 0 else 179 }
-		width: { if card.rareza=="rara paralela" then 697 else 614 }
-		height: { if card.rareza=="rara paralela" then 1016 else 462 }
+		left:	{ if card.rareza=="rara paralela"		then 0 else 43 }
+		top:	{ if card.rareza=="rara paralela"		then 0 else 179 }
+		width:	{ if card.rareza=="rara paralela"		then 697 else 614 }
+		height:	{ if card.rareza=="rara paralela"		then 1016 else 462 }
 		z index: 5
 		
 		# angle: { if card.rareza!="rara paralela" then 90 }
-		# thought on rotating the image because the illustration space is not the same as the other card types
-		# so the foil doesn't properly fit but if I rotate then the colors would be messed up so is best to just
-		# change the width and height of the foils.
+		# thought on rotating the image because the illustration space is not the same as the other standard card
+		# types so the foil doesn't properly fit but if I rotate then the colors would be messed up so is best to
+		# just change the width and height of the foils.
 		
 		render style: image
 		mask: { if card.rareza == "rara paralela" then nil else "mask_pendulum.png" }
 		image:
-			script:	if card.rareza=="súper rara" then "superfoil.png" else
-				if card.rareza=="ultra rara" then "superfoil.png" else
-				if card.rareza=="rara secreta" then "secretfoil.png" else
-				if card.rareza=="rara definitiva" then "superfoil.png" else
-				if card.rareza=="rara paralela" then "parallelfoil.png" else
-				if card.rareza=="promo" then "superfoil.png" else nil
+			script:	if card.rareza=="súper rara"		then "superfoil.png" else
+					if card.rareza=="ultra rara"		then "superfoil.png" else
+					if card.rareza=="rara secreta"		then "secretfoil.png" else
+					if card.rareza=="rara definitiva"	then "superfoil.png" else
+					if card.rareza=="rara paralela"		then "parallelfoil.png" else
+					if card.rareza=="promo" 			then "superfoil.png" else nil
 
 	############################# Name line
 
@@ -85,16 +85,16 @@ card style:
 			name: MatrixRegularSmallCaps
 			size: 55
 			color:
-				script: if card.rareza=="rara" then rgb(230,230,230)
-				else if card.rareza=="rara secreta" then rgb(230,230,230)
-				else if card.rareza=="promo" then rgb(230,230,230)
-				else if card.rareza=="ultra rara" then rgb(216,199,53)
-				else if card.rareza=="rara definitiva" then rgb(60,0,0)
-				else if card.rareza=="rara paralela" then rgb(216,199,53)
-				else if card.tipo_de_carta=="monstruo de sincronía oscura" then rgb(255,255,255)
-				else if card.tipo_de_carta=="monstruo xyz" then rgb(255,255,255)
-				else if is_nmonster() then rgb(255,255,255)
-				else rgb(230,230,230)
+				script:	if card.rareza=="rara"									then rgb(230,230,230)
+				else	if card.rareza=="rara secreta"							then rgb(230,230,230)
+				else	if card.rareza=="promo"									then rgb(230,230,230)
+				else	if card.rareza=="ultra rara"							then rgb(216,199,53)
+				else	if card.rareza=="rara definitiva"						then rgb(60,0,0)
+				else	if card.rareza=="rara paralela"							then rgb(216,199,53)
+				else	if card.tipo_de_carta=="monstruo de sincronía oscura"	then rgb(255,255,255)
+				else	if card.tipo_de_carta=="monstruo xyz"					then rgb(255,255,255)
+				else	if is_nmonster()										then rgb(255,255,255)
+				else																 rgb(230,230,230)
 
 	atributo:
 		left: 553
@@ -105,15 +105,15 @@ card style:
 		render style: image
 		popup style: in place
 		choice images:
-			tierra: earth.png
-			agua: water.png
-			fuego: fire.png
-			viento: wind.png
-			luz: light.png
-			oscuridad: dark.png
-			divinidad: divine.png
-			mágica: spell.png
-			trampa: trap.png
+			tierra:		earth.png
+			agua: 		water.png
+			fuego:		fire.png
+			viento:		wind.png
+			luz:		light.png
+			oscuridad:	dark.png
+			divinidad:	divine.png
+			mágica:		spell.png
+			trampa:		trap.png
 
 	nivel:
 		left: 74

@@ -1,5 +1,6 @@
 ﻿
 ############################################################## Set fields
+
 set field:
 	type: info
 	name: Información del set
@@ -33,7 +34,9 @@ set field:
 	name: los dioses tienen efectos
 	description: ¿Deberían las cartas de dioses tener efectos?
 	initial: yes
+	
 ############################# Default style
+
 default set style:
 	título:
 		padding left: 2

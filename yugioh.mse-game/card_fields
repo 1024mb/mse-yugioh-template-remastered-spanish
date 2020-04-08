@@ -1,6 +1,7 @@
 ﻿
 ############################################################## Card fields
 ############################# Background stuff
+
 card field:
 	type: choice
 	name: forma
@@ -12,6 +13,7 @@ card field:
 	script:
 		stylesheet   # indicate that this value should be updated when the stylesheet changes
 		card_forma() # determined by the style
+
 card field:
 	type: choice
 	name: tipo de carta
@@ -76,6 +78,7 @@ card field:
 		carta mágica:	   rgb(80,80,80)
 		carta de trampa:	   rgb(30,110,0)
 		monstruo xyz: rgb(26,26,26)
+
 card field:
 	type: choice
 	name: láminas
@@ -86,7 +89,9 @@ card field:
 	choice: imagen holográfica paralela
 	choice: imagen holográfica de tec. dorada
 	default: lámina()
+
 ############################# Name line
+
 card field:
 	type: text
 	name: nombre
@@ -94,6 +99,7 @@ card field:
 	show statistics: false
 	card list visible: true
 	card list column: 1
+
 card field:
 	type: choice
 	name: atributo
@@ -110,6 +116,7 @@ card field:
 	default: atributo()
 	card list visible: true
 	card list column: 2
+
 card field:
 	type: text
 	name: nivel
@@ -117,12 +124,15 @@ card field:
 	script: level_filter(value)
 
 ############################# Image
+
 card field:
 	type: image
 	name: ilustración
 	show statistics: false
+
 ############################# Card type
 # Keep type1, type2, and separator fields for backwards compatibility until two or three versions after 0.3.8.
+
 card field:
 	type: text
 	name: tipo1
@@ -130,12 +140,14 @@ card field:
 	default: "   "
 	editable: false
 	show statistics: false
+
 card field:
 	type: text
 	name: tipo2
 	script: card_class_filter(value)
 	editable: false
 	show statistics: false
+
 card field:
 	type: text
 	name: separador
@@ -143,22 +155,27 @@ card field:
 	editable: false
 	save value: false
 	show statistics: false
+
 # These are the new type fields.
+
 card field:
 	type: text
 	name: tipo 1
 	script: monster_type_filter(value)
 	default: card.tipo1 # Remove when card.type1 is removed.
+
 card field:
 	type: text
 	name: tipo 2
 	script: card_class_filter(value)
 	default: split_text(match:" / ", card.tipo2).0 # Remove when card.type2 is removed.
+
 card field:
 	type: text
 	name: tipo 3
 	script: card_class_filter(value)
 	default: if contains(card.tipo2, match:" / ") then split_text(match:" / ", card.tipo2).1 else "" # Remove when card.type2 is removed.
+
 card field:
 	type: text
 	name: tipo de monstruo
@@ -176,7 +193,9 @@ card field:
 	card list visible: true
 	card list column: 3
 	show statistics: false
+
 ############################# Edition and Card ID
+
 card field:
 	type: text
 	name: número
@@ -194,18 +213,22 @@ card field:
 	editable: false
 	save value: false
 	show statistics: false
+
 card field:
 	type: text
 	name: edición
 	default: set.edición
 	show statistics: false
+
 ############################# Text box
+
 card field:
 	type: text
 	name: reglas
 	script: text_filter(value)
 	editable: false
 	show statistics: false
+
 card field:
 	type: text
 	name: descripción
@@ -216,7 +239,9 @@ card field:
 		if nm_ext_querry(value) then flavor_text_filter(value)
 		else text_filter(value)
 	default: card.reglas
+
 ############################# Attack/Defense
+
 card field:
 	type: text
 	name: ataque
@@ -226,6 +251,7 @@ card field:
 	card list column: 4
 	card list width: 33
 	card list name: ATK
+
 card field:
 	type: text
 	name: defensa
@@ -235,23 +261,30 @@ card field:
 	card list column: 5
 	card list width: 33
 	card list name: DEF
+
 ############################# Pendulum Fields
+
 card field:
 	type: text
 	name: péndulo_azul
+
 card field:
 	type: text
 	name: péndulo_rojo
+
 card field:
 	type: text
 	name: péndulo_-_texto
 	multi line: true
 	script: text_filter(value)
+
 ############################# Copyright stuff
+
 card field:
 	type: text
 	name: código del juego
 	show statistics: false
+
 card field:
 	type: choice
 	name: rareza
@@ -267,11 +300,13 @@ card field:
 	choice: promo
 	card list visible: true
 	card list column: 7
+
 card field:
 	type: choice
 	name: lámina de la esquina
 	choice: estampilla
 	editable: false
+
 card field:
 	type: text
 	name: copyright

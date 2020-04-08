@@ -8,6 +8,7 @@ installer group: Yugioh/Symbol Fonts/Text Replacements
 
 image font size: 16
 horizontal space: 2
+
 symbol:
 	code: [
 	image: leftbracket.png
@@ -43,6 +44,7 @@ symbol:
 
 ##############################################################
 # Insert-symbol menu
+
 insert symbol menu:
 	item: [
 	item: ]

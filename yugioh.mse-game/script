@@ -8,6 +8,7 @@
 	#  - adds level symbols
 	#  - adds infinity symbols
 	#  - makes text in parentheses italic
+
 	text_filter := 
 		# step 1 : remove all automatic tags
 		tag_remove_rule(tag: "<sym-auto>") +
@@ -31,6 +32,7 @@
 		replace_rule(
 			match: "[|@|*|?|]",
 			replace: "<sym-auto>&</sym-auto>" );
+
 	level_filter := 
 		# step 1 : remove all automatic tags
 		tag_remove_rule(tag: "<sym-auto>") +
@@ -38,6 +40,7 @@
 		replace_rule(
 			match: "[|%|!|+|&|$|#|*|^|]",
 			replace: "<sym-auto>&</sym-auto>" );
+
 	a_and_d_filter := 
 		# step 1 : remove all automatic tags
 		tag_remove_rule(tag: "<sym-auto>") +
@@ -49,142 +52,154 @@
 		replace_rule(
 			match: "\\?",
 			replace: "<sym-auto>&</sym-auto>" );
-	
+
 	# the flavor text filter
 	flavor_text_filter :=
-		# step 1 : remove italic tags
-		tag_remove_rule(tag: "<i-flavor>") +
-		# step 2 : surround by <i> tags
-		{ "<i-flavor>" + input + "</i-flavor>" };
-	
+		# step 1 :	remove italic tags
+					tag_remove_rule(tag: "<i-flavor>") +
+		# step 2 :	surround by <i> tags
+					{ "<i-flavor>" + input + "</i-flavor>" };
+
 	type_over_list := replace_rule(match:" ?/", replace:"")
-	
+
 	monster_type_filter :=
 		tag_remove_rule(tag: "<word-list-") +
 		type_over_list +
 		{ "<word-list-monster>{input}</word-list-monster>" }
-	
+
 	space_to_wltags := replace_rule(match:"( +|<soft> </soft>)",
-	                                replace:{"</word-list-{list_type}>{_1}<word-list-{list_type}>"})
-	
+									replace:{"</word-list-{list_type}>{_1}<word-list-{list_type}>"})
+
 	card_class_filter :=
 		tag_remove_rule(tag: "<word-list-") +
 		type_over_list +
 		{ "<word-list-card>{input}</word-list-card>" }
-	
+
 	# Determine type of card
+
 	tipo_de_carta := {
-		if	card.atributo	== "mágica"								then "carta mágica"
-		else if	contains(card.nivel, match:"Carta Mágica")						then "carta mágica"
-		else if card.atributo	== "trampa"								then "carta de trampa"
-		else if	contains(card.nivel, match:"Carta de Trampa")							then "carta de trampa"
-		else if card.tipo_1	== "<word-list-monster>Bestia Divina</word-list-monster>"		then "obelisco"
+		if	card.atributo	== "mágica"															then "carta mágica"
+		else if	contains(card.nivel, match:"Carta Mágica")										then "carta mágica"
+		else if card.atributo	== "trampa"														then "carta de trampa"
+		else if	contains(card.nivel, match:"Carta de Trampa")									then "carta de trampa"
+		else if card.tipo_1	== "<word-list-monster>Bestia Divina</word-list-monster>"			then "obelisco"
 		else if card.tipo_1	== "<word-list-monster>Dragón Legendario</word-list-monster>"		then "dragones legendarios"
-		else if	contains(card.tipo_de_monstruo, match:"Fusión")						then "monstruo de fusión"
-		else if	contains(card.tipo_de_monstruo, match:"Ritual")						then "monstruo de ritual"
-		else if	contains(card.tipo_de_monstruo, match:"Sincronía Oscura")					then "monstruo de sincronía oscura"
+		else if	contains(card.tipo_de_monstruo, match:"Fusión")									then "monstruo de fusión"
+		else if	contains(card.tipo_de_monstruo, match:"Ritual")									then "monstruo de ritual"
+		else if	contains(card.tipo_de_monstruo, match:"Sincronía Oscura")						then "monstruo de sincronía oscura"
 		else if	contains(card.tipo_de_monstruo, match:"Sincronía Cantante")						then "monstruo de efecto"
-		else if	contains(card.tipo_de_monstruo, match:"Sincronía")						then "monstruo Xyz"
-		else if	contains(card.tipo_de_monstruo, match:"Xyz")						then "monstruo de sincronía"
-		else if	contains(card.tipo_de_monstruo, match:"Efecto")						then "monstruo de efecto"
-		else if	contains(card.tipo_de_monstruo, match:"Espíritu")						then "monstruo de efecto"
-		else if	contains(card.tipo_de_monstruo, match:"Toon")						then "monstruo de efecto"
-		else if	contains(card.tipo_de_monstruo, match:"Cantante")						then "monstruo de efecto"
-		else if	contains(card.tipo_de_monstruo, match:"Unión")						then "monstruo de efecto"
-		else                                         	 							"monstruo normal"
+		else if	contains(card.tipo_de_monstruo, match:"Sincronía")								then "monstruo Xyz"
+		else if	contains(card.tipo_de_monstruo, match:"Xyz")									then "monstruo de sincronía"
+		else if	contains(card.tipo_de_monstruo, match:"Efecto")									then "monstruo de efecto"
+		else if	contains(card.tipo_de_monstruo, match:"Espíritu")								then "monstruo de efecto"
+		else if	contains(card.tipo_de_monstruo, match:"Toon")									then "monstruo de efecto"
+		else if	contains(card.tipo_de_monstruo, match:"Cantante")								then "monstruo de efecto"
+		else if	contains(card.tipo_de_monstruo, match:"Unión")									then "monstruo de efecto"
+		else																					"monstruo normal"
 	}
+
 	# Default 'attribute' of card
+
 	atributo := {
 		if      is_spell_card() then "Mágica"
 		else if is_trap_card()  then "Trampa"
 		else                         "ninguno"
 	}
+
 	# Default foil for a card
+
 	lámina := {
-		if	card.rareza == "súper rara"	then "imagen holográfica"
-		else if card.rareza == "ultra rara"	then "imagen holográfica"
-		else if card.rareza == "rara secreta"	then "imagen holográfica secreta"
-		else if card.rareza == "rara definitiva"	then "imagen holográfica"
-		else if card.rareza == "rara paralela"	then "imagen holográfica paralela"
-		else if card.rareza == "tec. dorada"	then "imagen holográfica de tec. dorada"
-		else if card.rareza == "promo"		then "imagen holográfica secreta"
-		else					     "ninguno"
+		if	card.rareza ==		"súper rara"				then "imagen holográfica"
+		else if card.rareza ==	"ultra rara"				then "imagen holográfica"
+		else if card.rareza ==	"rara secreta"				then "imagen holográfica secreta"
+		else if card.rareza ==	"rara definitiva"			then "imagen holográfica"
+		else if card.rareza ==	"rara paralela"				then "imagen holográfica paralela"
+		else if card.rareza ==	"tec. dorada"				then "imagen holográfica de tec. dorada"
+		else if card.rareza ==	"promo"						then "imagen holográfica secreta"
+		else					"ninguno"
 	}
-	
+
 	############### Type of card
-	
+
 	card_forma := { "normal" }
-	
+
 	nm_ext_querry := {
 		if set.los_dioses_tienen_efectos == "no" then is_normal_monster_extended(value)
 		else is_normal_monster(value)
 	}
+
 	is_nmonster := {
-		card.tipo_de_carta == "carta mágica" or
-	        card.tipo_de_carta == "carta de trampa"
+		card.tipo_de_carta	== "carta mágica"					or
+		card.tipo_de_carta	== "carta de trampa"
 	}
+
 	is_monster := {
-		card.tipo_de_carta == "monstruo normal" or
-	        card.tipo_de_carta == "monstruo de efecto" or
-	        card.tipo_de_carta == "monstruo de ritual" or
-		card.tipo_de_carta == "monstruo de sincronía oscura" or
-	        card.tipo_de_carta == "monstruo de sincronía" or
-		card.tipo_de_carta == "monstruo xyz"   or
-		card.tipo_de_carta == "monstruo de péndulo"   or
-	        card.tipo_de_carta == "monstruo de fusión" or
-	        card.tipo_de_carta == "ficha de monstruo" or
-		card.tipo_de_carta == "obelisco"        or
-		card.tipo_de_carta == "slifer"	   or
-		card.tipo_de_carta == "ra"		   or
-		card.tipo_de_carta == "dragones legendarios"
+		card.tipo_de_carta	== "monstruo normal"				or
+		card.tipo_de_carta	== "monstruo de efecto"				or
+		card.tipo_de_carta	== "monstruo de ritual"				or
+		card.tipo_de_carta	== "monstruo de sincronía oscura"	or
+		card.tipo_de_carta	== "monstruo de sincronía"			or
+		card.tipo_de_carta	== "monstruo xyz"					or
+		card.tipo_de_carta	== "monstruo de péndulo"			or
+		card.tipo_de_carta	== "monstruo de fusión"				or
+		card.tipo_de_carta	== "ficha de monstruo"				or
+		card.tipo_de_carta	== "obelisco"						or
+		card.tipo_de_carta	== "slifer"							or
+		card.tipo_de_carta	== "ra"								or
+		card.tipo_de_carta	== "dragones legendarios"
 	}
+
 	is_normal_monster_extended := {
-		card.tipo_de_carta == "monstruo normal" or
-		card.tipo_de_carta == "obelisco"        or
-		card.tipo_de_carta == "slifer"	   or
-		card.tipo_de_carta == "ra"		   or
-		card.tipo_de_carta == "dragones legendarios"
+		card.tipo_de_carta	== "monstruo normal"				or
+		card.tipo_de_carta	== "obelisco"						or
+		card.tipo_de_carta	== "slifer"							or
+		card.tipo_de_carta	== "ra"								or
+		card.tipo_de_carta	== "dragones legendarios"
 	}
+
 	is_normal_monster := {
-		card.tipo_de_carta == "monstruo normal"
+		card.tipo_de_carta	== "monstruo normal"
 	}
+
 	is_spell_card := {
-		card.tipo_de_carta == "carta mágica"	or
-		card.atributo == "mágica"	or
-		card.nivel     == "Mágica"
+		card.tipo_de_carta	== "carta mágica"					or
+		card.atributo		== "mágica"							or
+		card.nivel			== "Mágica"
 	}
+
 	is_trap_card := {
-	        card.tipo_de_carta == "carta de trampa"	or
-		card.atributo == "trampa"	or
-		card.nivel     == "Trampa"
+		card.tipo_de_carta	== "carta de trampa"				or
+		card.atributo		== "trampa"							or
+		card.nivel			== "Trampa"
 	}
+
 	############### Determine Card Position
-	
+
 	type_sort := {
 		type := card.tipo_de_carta
-		if chosen(choice:"monstruo normal", type) then "A"
-		else if chosen(choice:"ra", type) then "B"
-		else if chosen(choice:"monstruo de efecto", type) then "C"
-		else if chosen(choice:"slifer", type) then "D"
-		else if chosen(choice:"monstruo de ritual", type) then "E"
-		else if chosen(choice:"obelisco", type) then "F"
-		else if chosen(choice:"monstruo de fusión", type) then "G"
-		else if chosen(choice:"monstruo de sincronía", type) then "H"
-		else if chosen(choice:"monstruo xyz", type) then "I"
-		else if chosen(choice:"monstruo de péndulo", type) then "J"
-		else if chosen(choice:"monstruo de sincronía oscura", type) then "K"
-		else if chosen(choice:"ficha de monstruo", type) then "L"
-		else if chosen(choice:"dragones legendarios", type) then "M"
-		else if chosen(choice:"carta mágica", type) then "N"
-		else if chosen(choice:"carta de trampa", type) then "o"
-		else "P"
+		if chosen(choice:"monstruo normal", type)						then "A"
+		else if chosen(choice:"ra", type)								then "B"
+		else if chosen(choice:"monstruo de efecto", type)				then "C"
+		else if chosen(choice:"slifer", type)							then "D"
+		else if chosen(choice:"monstruo de ritual", type)				then "E"
+		else if chosen(choice:"obelisco", type)							then "F"
+		else if chosen(choice:"monstruo de fusión", type)				then "G"
+		else if chosen(choice:"monstruo de sincronía", type)			then "H"
+		else if chosen(choice:"monstruo xyz", type)						then "I"
+		else if chosen(choice:"monstruo de péndulo", type)				then "J"
+		else if chosen(choice:"monstruo de sincronía oscura", type)		then "K"
+		else if chosen(choice:"ficha de monstruo", type)				then "L"
+		else if chosen(choice:"dragones legendarios", type)				then "M"
+		else if chosen(choice:"carta mágica", type)						then "N"
+		else if chosen(choice:"carta de trampa", type)					then "o"
+		else																 "P"
 	}
-	
+
 	pos_of_card := {
 		position(
 			of: card
 			in: set
-			order_by: {
+			order_by:	{
 				type_sort() + card.tipo_de_monstruo + card.nombre + card.atributo
-			}) + 1
+						}) + 1
 	}

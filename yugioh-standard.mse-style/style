@@ -46,20 +46,20 @@ card style:
 		render style: image
 		popup style: in place
 		choice images:
-			monstruo normal: card-normal.png
-			monstruo de efecto: card-effect.png
-			monstruo de ritual: card-ritual.png
-			monstruo de sincronía: card-synchro.png
-			monstruo de sincronía oscura: card-dsynchro.png
-			monstruo de fusión: card-fusion.png
-			ficha de monstruo: card-token.png
-			obelisco: card-obelisk.png
-			slifer: card-slifer.png
-			ra: card-ra.png
-			dragones legendarios: card-dragons.png
-			carta mágica: card-spell.png
-			carta de trampa: card-trap.png
-			monstruo xyz: card-xyz.png
+			monstruo normal:				card-normal.png
+			monstruo de efecto:				card-effect.png
+			monstruo de ritual:				card-ritual.png
+			monstruo de sincronía:			card-synchro.png
+			monstruo de sincronía oscura:	card-dsynchro.png
+			monstruo de fusión:				card-fusion.png
+			ficha de monstruo:				card-token.png
+			obelisco:						card-obelisk.png
+			slifer:							card-slifer.png
+			ra:								card-ra.png
+			dragones legendarios:			card-dragons.png
+			carta mágica:					card-spell.png
+			carta de trampa:				card-trap.png
+			monstruo xyz:					card-xyz.png
 
 	láminas:
 		left: { if card.rareza=="rara paralela" then 0 else if card.rareza=="tec. dorada" then 0 else if is_trap_card() then 103 else 97 }
@@ -70,13 +70,13 @@ card style:
 		render style: image
 		popup style: in place
 		image:
-			script:	if card.rareza=="súper rara" then "superfoil.png" else
-				if card.rareza=="ultra rara" then "superfoil.png" else
-				if card.rareza=="rara secreta" then "secretfoil.png" else
-				if card.rareza=="rara definitiva" then "superfoil.png" else
-				if card.rareza=="rara paralela" then "parallelfoil.png" else
-				if card.rareza=="tec. dorada" then "goldfoil.png" else
-				if card.rareza=="promo" then "superfoil.png" else nil
+			script:	if card.rareza=="súper rara"		then "superfoil.png" else
+					if card.rareza=="ultra rara"		then "superfoil.png" else
+					if card.rareza=="rara secreta"		then "secretfoil.png" else
+					if card.rareza=="rara definitiva"	then "superfoil.png" else
+					if card.rareza=="rara paralela"		then "parallelfoil.png" else
+					if card.rareza=="tec. dorada"		then "goldfoil.png" else
+					if card.rareza=="promo"				then "superfoil.png" else nil
 
 	############################# Name line
 
@@ -93,18 +93,18 @@ card style:
 			name: MatrixRegularSmallCaps
 			size: 55
 			color:
-				script: if card.rareza=="rara" then rgb(186,220,234)
-				else if card.rareza=="rara secreta" then rgb(251,252,167)
-				else if card.rareza=="promo" then rgb(207,2,74)
-				else if card.rareza=="súper rara" then rgb(105,40,12)
-				else if card.rareza=="ultra rara" then rgb(207,188,130)
-				else if card.rareza=="rara definitiva" then rgb(180,130,0)
-				else if card.rareza=="rara paralela" then rgb(216,199,53)
-				else if card.rareza=="tec. dorada" then rgb(216,199,53)
-				else if card.tipo_de_carta=="monstruo de sincronía oscura" then rgb(255,255,255)
-				else if card.tipo_de_carta=="monstruo xyz" then rgb(255,255,255)
-				else if is_nmonster() then rgb(255,255,255)
-				else rgb(0,0,0)
+				script:	if card.rareza=="rara"									then rgb(186,220,234)
+				else	if card.rareza=="rara secreta"							then rgb(251,252,167)
+				else	if card.rareza=="promo"									then rgb(207,2,74)
+				else	if card.rareza=="súper rara"							then rgb(105,40,12)
+				else	if card.rareza=="ultra rara"							then rgb(207,188,130)
+				else	if card.rareza=="rara definitiva"						then rgb(180,130,0)
+				else	if card.rareza=="rara paralela"							then rgb(216,199,53)
+				else	if card.rareza=="tec. dorada"							then rgb(216,199,53)
+				else	if card.tipo_de_carta=="monstruo de sincronía oscura"	then rgb(255,255,255)
+				else	if card.tipo_de_carta=="monstruo xyz"					then rgb(255,255,255)
+				else	if is_nmonster()										then rgb(255,255,255)
+				else																 rgb(0,0,0)
 
 	atributo:
 		left: 563
@@ -115,15 +115,15 @@ card style:
 		render style: image
 		popup style: in place
 		choice images:
-			tierra: earth.png
-			agua: water.png
-			fuego: fire.png
-			viento: wind.png
-			luz: light.png
-			oscuridad: dark.png
-			divinidad: divine.png
-			mágica: spell.png
-			trampa: trap.png
+			tierra:		earth.png
+			agua:		water.png
+			fuego:		fire.png
+			viento:		wind.png
+			luz:		light.png
+			oscuridad:	dark.png
+			divinidad:	divine.png
+			mágica:		spell.png
+			trampa:		trap.png
 
 	nivel:
 		left: { if card.tipo_de_carta == "carta de trampa" then 83 else if card.tipo_de_carta == "carta mágica" then 74 else 78 }

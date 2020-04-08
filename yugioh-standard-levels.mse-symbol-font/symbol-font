@@ -1,4 +1,4 @@
-﻿mse version: 0.3.6
+﻿mse version: 2.0.0
 version: 2020-03-31
 short name: Estándar
 position hint: 001
@@ -8,6 +8,7 @@ installer group: Yugioh/Symbol Fonts/Standard
 
 image font size: 16
 horizontal space: 3
+
 symbol:
 	code: %
 	image: continuous.png
@@ -51,6 +52,7 @@ symbol:
 
 ##############################################################
 # Insert-symbol menu
+
 insert symbol menu:
 	item: %
 	item: !

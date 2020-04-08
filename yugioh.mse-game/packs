@@ -1,5 +1,6 @@
 ﻿
 ############################################################## Card pack items
+
 pack type:
 	name: rara
 	filter: card.rareza != "común"
@@ -12,7 +13,9 @@ pack type:
 pack type:
 	name: card
 	filter: card.número != ""
+
 ############################################################## Card packs
+
 pack type:
 	name: sobre de cartas
 	item:
@@ -76,6 +79,6 @@ pack type:
 	item:
 		name: dorada
 pack type:
-	name: card adicional
+	name: carta adicional
 	item:
 		name: card

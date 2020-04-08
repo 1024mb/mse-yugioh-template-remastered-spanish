@@ -19,7 +19,9 @@ file type: *.txt|*.txt|*.*|*.*
 #Translated by 1024mb
 
 script:
+
 	# filter out everything but stars from the level line
+
 	level_star_filter := replace@(match:"<sym-auto>", replace:"")+
 		replace@(match:"</sym-auto>", replace:"")+
 		replace@(match:"!", replace:"")+
@@ -31,20 +33,26 @@ script:
 		replace@(match:"[0-9]", replace:"")+
 		replace@(match:"[a-z]", replace:"")+
 		replace@(match:"[A-Z]", replace:"")
+
 	# counts stars by breaking them into a list and seeing how long the list is
+
 	level_count := {
 		if not is_monster() then level_star_filter(card.nivel)
 		else number_of_items(in: level_star_filter(card.nivel))
 	}
+
 	# Checks for each of the sub types
-	nonmonster_level_filter := { if contains(input, match:"%") then "Continua"
-		+if contains(input, match:"!") then "Contraefecto"
-		+if contains(input, match:"+") then "Equipo"
-		+if contains(input, match:"&") then "Campo"
-		+if contains(input, match:"$") then "Juego Rápido"
-		+if contains(input, match:"#") then "Ritual"
+
+	nonmonster_level_filter := { if contains(input, match:"%")	then "Continua"
+		+if contains(input, match:"!")							then "Contraefecto"
+		+if contains(input, match:"+")							then "Equipo"
+		+if contains(input, match:"&")							then "Campo"
+		+if contains(input, match:"$")							then "Juego Rápido"
+		+if contains(input, match:"#")							then "Ritual"
 	}
+
 	# remove spaces from things
+
 	no_spaces := replace@(match:" ", replace:"")
 	write_monster := {
 		"\n\n"+card.número+" "+card.nombre
@@ -56,13 +64,17 @@ script:
 		+" DEF\n"+card.descripción
 		+(if card.rareza != "común" then "\n"+to_title(card.rareza))
 		}
+
 	write_nonmonster := {
 		"\n\n"+card.número+" "+card.nombre
 		+"\n"+nonmonster_level_filter(card.nivel)+(if nonmonster_level_filter(card.nivel)=="" then "Normal")
-			+" "+to_title(card.tipo_de_carta)+"\n"
+		+" "+to_title(card.tipo_de_carta)+"\n"
 		+card.descripción
 		+(if card.rareza != "común" then "\n"+to_title(card.rareza))
 		}
+
 	write_card := { if is_monster() then write_monster() else write_nonmonster() }
+
 	write_cards := to_text(for each card in sort_list(cards, order_by: {card.número}) do write_card())
+
 	to_string(set.título+"\n"+set.descripción+write_cards)
