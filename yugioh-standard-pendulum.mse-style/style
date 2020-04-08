@@ -55,12 +55,12 @@ card style:
 		width:	{ if card.rareza=="rara paralela"		then 697 else 614 }
 		height:	{ if card.rareza=="rara paralela"		then 1016 else 462 }
 		z index: 5
-		
+
 		# angle: { if card.rareza!="rara paralela" then 90 }
 		# thought on rotating the image because the illustration space is not the same as the other standard card
 		# types so the foil doesn't properly fit but if I rotate then the colors would be messed up so is best to
 		# just change the width and height of the foils.
-		
+
 		render style: image
 		mask: { if card.rareza == "rara paralela" then nil else "mask_pendulum.png" }
 		image:
@@ -327,7 +327,7 @@ card style:
 		render style: image
 		popup style: in place
 		image: 
-			script: if card.edición!="" then "cornerfirst.png" else "cornerunlimited.png"
+			script: if card.rareza=="súper rara" then "cornerunlimited.png" else if card.rareza=="rara secreta" then "cornerunlimited.png" else "cornerfirst.png"
 
 	copyright:
 		left: 398
