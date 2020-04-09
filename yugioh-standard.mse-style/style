@@ -63,9 +63,9 @@ card style:
 
 	láminas:
 		left: { if card.rareza=="rara paralela" then 0 else if card.rareza=="tec. dorada" then 0 else if is_trap_card() then 103 else 97 }
-		top: { if card.rareza=="rara paralela" then 0 else if card.rareza=="tec. dorada" then 0 else if is_trap_card() then 206 else 202 }
-		width: { if card.rareza=="rara paralela" then 697 else if card.rareza=="tec. dorada" then 697 else 498 }
-		height: { if card.rareza=="rara paralela" then 1016 else if card.rareza=="tec. dorada" then 1016 else if is_trap_card() then 503 else 506 }
+		top: { if card.rareza=="rara paralela" then 0 else if card.rareza=="tec. dorada" then 0 else if is_trap_card() then 206 else 203 }
+		width: { if card.rareza=="rara paralela" then 697 else if card.rareza=="tec. dorada" then 697 else 499 }
+		height: { if card.rareza=="rara paralela" then 1016 else if card.rareza=="tec. dorada" then 1016 else if is_trap_card() then 503 else 501 }
 		z index: 5
 		render style: image
 		popup style: in place
