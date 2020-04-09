@@ -164,13 +164,13 @@
 	is_spell_card := {
 		card.tipo_de_carta	== "carta mágica"					or
 		card.atributo		== "mágica"							or
-		card.nivel			== "Mágica"
+		card.nivel			== "Carta Mágica"
 	}
 
 	is_trap_card := {
 		card.tipo_de_carta	== "carta de trampa"				or
 		card.atributo		== "trampa"							or
-		card.nivel			== "Trampa"
+		card.nivel			== "Carta de Trampa"
 	}
 
 	############### Determine Card Position
