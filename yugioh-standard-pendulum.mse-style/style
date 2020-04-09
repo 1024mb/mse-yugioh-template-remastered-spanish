@@ -27,7 +27,7 @@ init script:
 ############################################################## Extra style
 styling field:
 	type: choice
-	name: alineamiento de reglas
+	name: alineación de la descripción
 	description: ¿Debería justificarse el texto de las reglas? ADVERTENCIA: La justificación no es perfecta.
 	initial: sin justificar
 	choice: sin justificar
@@ -201,7 +201,7 @@ card style:
 		symbol font:
 			name: yugioh-text-replacements
 			size: 8
-		alignment: { if styling.alineamiento_de_reglas=="justificado" then "top left justify" else "top left" }
+		alignment: { if styling.alineación_de_la_descripción=="justificado" then "top left justify" else "top left" }
 		z index: 3
 		padding left: 0
 		padding top: 0.5
@@ -291,7 +291,7 @@ card style:
 			name: yugioh-text-replacements
 			alignment: middle center
 			size: 6.5
-		alignment: { if styling.alineamiento_de_reglas=="justificado" then "top left justify" else "top left" }
+		alignment: { if styling.alineación_de_la_descripción=="justificado" then "top left justify" else "top left" }
 		z index: 3
 		padding left: 0.5
 		padding top: 0.5
@@ -327,7 +327,8 @@ card style:
 		render style: image
 		popup style: in place
 		image: 
-			script: if card.rareza=="súper rara" then "cornerunlimited.png" else if card.rareza=="rara secreta" then "cornerunlimited.png" else "cornerfirst.png"
+			script: if card.rareza=="súper rara" or card.rareza=="rara secreta" then "cornerunlimited.png"
+			else "cornerfirst.png"
 
 	copyright:
 		left: 398

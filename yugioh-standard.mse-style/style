@@ -25,7 +25,7 @@ card dpi: 300
 
 styling field:
 	type: choice
-	name: alineamiento de reglas
+	name: alineación de la descripción
 	description: ¿Debería justificarse el texto de las reglas? ADVERTENCIA: La justificación no es perfecta.
 	initial: sin justificar
 	choice: sin justificar
@@ -218,7 +218,7 @@ card style:
 		symbol font:
 			name: yugioh-text-replacements
 			size: 7
-		alignment: { if styling.alineamiento_de_reglas=="justificado" then "top left justify" else "top left" }
+		alignment: { if styling.alineación_de_la_descripción=="justificado" then "top left justify" else "top left" }
 		z index: 2
 		padding left: 1
 		padding top: 1
@@ -283,7 +283,8 @@ card style:
 			name: Palatino Linotype
 			size: 15
 			color: 
-				script: if card.tipo_de_carta=="monstruo de sincronía oscura" or card.tipo_de_carta=="monstruo xyz" then rgb(255,255,255) else rgb(0,0,0)
+				script: if card.tipo_de_carta=="monstruo de sincronía oscura" or card.tipo_de_carta=="monstruo xyz" then rgb(255,255,255)
+				else rgb(0,0,0)
 
 	rareza:
 		left: 632
@@ -294,7 +295,8 @@ card style:
 		render style: image
 		popup style: in place
 		image: 
-			script: if card.rareza=="súper rara" then "cornerunlimited.png" else if card.rareza=="rara secreta" then "cornerunlimited.png" else "cornerfirst.png"
+			script: if card.rareza=="súper rara" or card.rareza=="rara secreta" then "cornerunlimited.png"
+			else "cornerfirst.png"
 
 	copyright:
 		left: 339
@@ -307,7 +309,8 @@ card style:
 			name: Palatino Linotype
 			size: 15
 			color: 
-				script: if card.tipo_de_carta=="monstruo de sincronía oscura" or card.tipo_de_carta=="monstruo xyz" then rgb(255,255,255) else rgb(0,0,0)
+				script: if card.tipo_de_carta=="monstruo de sincronía oscura" or card.tipo_de_carta=="monstruo xyz" then rgb(255,255,255)
+				else rgb(0,0,0)
 
 ############################################extra card field:
 
