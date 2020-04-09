@@ -101,8 +101,8 @@
 	# Default 'attribute' of card
 
 	atributo := {
-		if      is_spell_card() then "Mágica"
-		else if is_trap_card()  then "Trampa"
+		if      is_spell_card() then "mágica"
+		else if is_trap_card()  then "trampa"
 		else                         "ninguno"
 	}
 
