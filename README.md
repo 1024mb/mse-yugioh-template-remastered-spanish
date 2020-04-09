@@ -19,7 +19,7 @@ One complain tho, MSE is painful to work with when creating templates. I want to
 
 ## Unfinished templates (Either I'm still working on them or I haven't started yet):
 
-- Standard Extra
+- Standard Extra [It's currently harder than I thought with things not being fully implemented and other thing wrong on the original template]
 - Comic
 - TV Show
 - Bandai
@@ -27,10 +27,11 @@ One complain tho, MSE is painful to work with when creating templates. I want to
 - Zotoshi
 - CBG Style
 
-## **Minimum** illustration sizes
+## **Recommended** illustration sizes
 
 - For Standard template: 498x502
 - For Pendulum template: 614x462
+- For Standard Extra template: 498x502, if choose no image frame then 528x529
 
 <br>
 
@@ -48,7 +49,16 @@ If I find the time I will translate this readme into Spanish, I'm lazy af :grin:
     - Added Standard Pendulum template.
     - Added Standard Pendulum resources with high quality.
     - Fixed bad symbols size.
-    
+- v0.3  **[Unreleased - WIP - Planned]**
+    - Added Standard Extra template.
+    - Added Standard Extra resources in high quality.
+    - Added new custom attributes to the Standard Extra template, replacing the old custom ones as I don't have them in high quality nor did I found them on the Internet. Credits for the new awesome custom attributes goes to GraysoGoodwn from DevianArt.
+    - Improved the translation of some strings.
+    - Fixed some words left untranslated.
+    - Fixed the foil stamps of Pendulum cards, they weren't properly configured. 
+    - Fixed position of foils on the Standard template, it was a little off.
+    - Fixed Attribute not changing automatically when choosing Spell and Trap card types.
+
 
 ## Known Glitches <small>(yeah, you read it right)</small>
 
@@ -63,6 +73,7 @@ There are some bugs that belong to MSE itself and has nothing to do with the tem
 
 - There is a text "double click to load image" that can't be translated, I tried looking for it on any other file but it isn't there so it must be on the source code of MSE.
 - If you try to export and choose "Export All Images" and then pick "Custom Selection" and then proceed to select the cards you will face two errors, to fix them you have to go to "**\<mse-installation-dir\>**\\resource\\" and rename the file *"selected\_yes.png"* to *"selected.png"* and the file *"selected_no.png"* to *"deselected.png"*.
+- You can set the Zoom at 200% and tick "Use zoom and rotation settings when exporting" on MSE settings to export the cards at twice the default resolution, of course that means that you will need at least an illustration at double the recommended resolution otherwise it wont look good. Although I'm not sure if MSE first resizes the illustration down to fit the configured illustration size (see up the recommended illustration sizes) and then proceeds to resize again the already resized illustration if one chooses the zoom at 200%, so use with care and compare results with the box ticked and unticked.
 
 
 ## Make sure to install the [required fonts](https://github.com/1024mb/mse-yugioh-template-remastered-spanish/tree/master/Fonts)
@@ -74,4 +85,4 @@ Please, if you see that something is misplaced, has the wrong size or something 
 <br>
 <br>
 
-Credits for the original work to UnknownGuest, the0nlykyd, Art_Freak, and the others which I couldn't find information of.
+<b><i>CREDITS FOR THE ORIGINAL WORK TO UNKNOWNGUEST, THE0NLYKYD, ART_FREAK, AND THE OTHERS WHICH I COULDN'T FIND INFORMATION OF.</i></b>
