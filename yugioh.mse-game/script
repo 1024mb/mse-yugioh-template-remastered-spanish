@@ -91,7 +91,7 @@
 		else if	contains(card.tipo_de_monstruo, match:"Sincronía")								then "monstruo Xyz"
 		else if	contains(card.tipo_de_monstruo, match:"Xyz")									then "monstruo de sincronía"
 		else if	contains(card.tipo_de_monstruo, match:"Efecto")									then "monstruo de efecto"
-		else if	contains(card.tipo_de_monstruo, match:"Espíritu")								then "monstruo de efecto"
+		else if	contains(card.tipo_de_monstruo, match:"Spirit")									then "monstruo de efecto"
 		else if	contains(card.tipo_de_monstruo, match:"Toon")									then "monstruo de efecto"
 		else if	contains(card.tipo_de_monstruo, match:"Cantante")								then "monstruo de efecto"
 		else if	contains(card.tipo_de_monstruo, match:"Unión")									then "monstruo de efecto"
