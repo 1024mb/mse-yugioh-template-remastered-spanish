@@ -3,7 +3,7 @@
 Yu-Gi-Oh! Complete Package template for Magic Set Editor reworked in HD and Spanish.
 
 Currently some graphics are kinda low quality, I'm in the process of reworking or searching for others with better quality. I've replaced several ones with better quality ones which should improve graphics.  
-Also, MSE will now export the custom cards at 697x1016 which at 300dpi is 59mm x 86mm for Standard and Pendulum templates. Bandai style is 
+Also, MSE will now export the custom cards at 697 x 1016 px which at 300dpi is 59 mm x 86 mm for Standard and Pendulum templates. Bandai style is 756 x 1039 px which at 300dpi is 64 mm x 88 mm.
 
 When I have been translating the English strings into Spanish I've encountered some errors in the original formatting of the template which I've fixed. Well, I've edited almost everything about sizes so I had to fix them when I was reworking that.  
 There is currently at least one string (iirc) that I couldn't translate: "card".  
