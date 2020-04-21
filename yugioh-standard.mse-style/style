@@ -157,9 +157,9 @@ card style:
 	tipo de monstruo:
 		left: 79
 		top: 765
-		width: { card_style.tipo_de_monstruo.content_width + 6 }
+		width: 538
 		height: 29
-		alignment: middle left
+		alignment: middle shrink-overflow
 		z index: 2
 		font:
 			name: MatrixBoldSmallCaps
@@ -369,7 +369,7 @@ extra card style:
 			lbracket: /yugioh-standard-levels.mse-symbol-font/leftbracket.png
 
 	rightbracket:
-		left: { if card.tipo_de_carta == "carta de trampa" then 609 else if card.tipo_de_carta == "carta mágica" then 601 else (card_style.tipo_de_monstruo.content_width + 82) }
+		left: { if card.tipo_de_carta == "carta de trampa" then 609 else if card.tipo_de_carta == "carta mágica" then 601 else if card_style.tipo_de_monstruo.content_width >= 538 then 620 else (82 + card_style.tipo_de_monstruo.content_width) }
 		top: { if card.tipo_de_carta == "carta de trampa" then 150 else if card.tipo_de_carta == "carta mágica" then 145 else 766 }
 		height: { if is_nmonster() then 32 else 26 }
 		width: { if is_nmonster() then 10 else 8 }
