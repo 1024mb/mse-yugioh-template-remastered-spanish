@@ -5,7 +5,7 @@ installer group: Yugioh/Bandai style
 icon: card-sample.png
 position hint: 04
 
-version: 2014-01-26
+version: 2020-04-21
 depends on:
 	package: yugioh.mse-game
 	version: 2020-03-31
