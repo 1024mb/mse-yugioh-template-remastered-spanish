@@ -146,10 +146,10 @@ card style:
 
 	tipo de monstruo:
 		left: 65
-		top: 765
-		width: { card_style.tipo_de_monstruo.content_width + 6 }
+		top: 763
+		width: { if card_style.tipo_de_monstruo.content_width < 575 then (card_style.tipo_de_monstruo.content_width + 6) else 575 }
 		height:  29
-		alignment: middle left
+		alignment: middle shrink-overflow
 		z index: 2
 		font:
 			name: MatrixBoldSmallCaps
@@ -398,7 +398,7 @@ extra card style:
 			lbracket: /yugioh-standard-levels.mse-symbol-font/leftbracket.png
 
 	rightbracket:
-		left: { card_style.tipo_de_monstruo.content_width + 67 }
+		left: { if card_style.tipo_de_monstruo.content_width >= 575 then 642 else card_style.tipo_de_monstruo.content_width + 67 }
 		top: 765
 		height: 25
 		width: 8
