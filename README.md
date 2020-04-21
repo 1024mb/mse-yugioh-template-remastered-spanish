@@ -20,7 +20,7 @@ One complain tho, MSE is painful to work with when creating templates. I want to
 
 ## Unfinished templates (Either I'm still working on them or I haven't started yet):
 
-- Standard Extra [It's currently harder than I thought with things not being fully implemented and other thing wrong on the original template]
+- Standard Extra [It's currently harder than I thought with things not being fully implemented and other things wrong, all this on the original template so I left it to work on it when I finish the other templates]
 - Comic
 - TV Show
 - Evolution
@@ -36,8 +36,8 @@ One complain tho, MSE is painful to work with when creating templates. I want to
 
 <br>
 
-If I find the time I will translate this readme into Spanish, I'm lazy af :grin:.
-
+If I find the time I will translate this readme into Spanish, I'm lazy af :grin:.  
+<small>(which I don't think is going to happen)</small>
 
 ## Changelog
 
@@ -50,7 +50,7 @@ If I find the time I will translate this readme into Spanish, I'm lazy af :grin:
     - Added Standard Pendulum template.
     - Added Standard Pendulum resources with high quality.
     - Fixed bad symbols size.
-- v0.3  
+- v0.3 **[Still unreleased]**  
     - Added Bandai style.
     - Added Bandai resources in high quality.
     - Improved the translation of some strings.
