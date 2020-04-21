@@ -1,5 +1,5 @@
-mse version: 0.3.6
-version: 2008-05-19
+mse version: 2.0.0
+version: 2020-04-21
 short name: Bandai
 position hint: 002
 icon: star.png
@@ -37,7 +37,7 @@ symbol:
 symbol:
 	code: *
 	image: star.png
-	image font size: 10
+	image font size: 15
 
 ##############################################################
 # Insert-symbol menu
