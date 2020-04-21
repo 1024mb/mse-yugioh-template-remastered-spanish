@@ -11,7 +11,7 @@ depends on:
 	version: 2020-03-31
 depends on:
 	package: yugioh-bandai-levels.mse-symbol-font
-	version: 2008-05-19
+	version: 2020-04-21
 depends on:
 	package: yugioh-text-replacements.mse-symbol-font
 	version: 2014-03-11
@@ -97,7 +97,7 @@ card style:
 		height: 50
 		width: 570
 		z index: 4
-		alignment: middle center
+		alignment: middle center shrink-overflow
 		font:
 			name: MatrixRegularSmallCaps
 			italic name: Matrix
@@ -122,12 +122,12 @@ card style:
 	############################# Card type
 
 	tipo de monstruo:
-		left: 120
-		top: 
-			script: if is_nmonster() then 812 else 140
-		width: 504
-		height: 28
-		alignment: top center
+		left:	120
+		top:
+			script: if is_nmonster() then 830 else 140
+		width:	504
+		height:	28
+		alignment: top center shrink-overflow
 		z index: 3
 		font:
 			name: MatrixRegularSmallCaps
@@ -139,91 +139,13 @@ card style:
 			alignment: middle center
 			size: 8.5
 
-	############################# Edition and Card ID
-
-	número:
-		left: 460
-		top: 828
-		width: 240
-		height: 56
-		z index: 2
-		alignment: top right
-		font:
-			name: Arial
-			size: 18
-			color: rgb(0,0,0)
-
-	############################# Text box
-	############################# Attack/Defense
-
-	ataque:
-		left:	497
-		top:	862
-		width:	173
-		height:	48
-		z index: 2
-		alignment: right middle shrink-overflow
-		font:
-			name: MatrixRegularSmallCaps
-			size: 43
-			color: rgb(0,0,0)
-		symbol font:
-			name: yugioh-text-replacements
-			alignment: middle center
-			size: 24
-		visible:
-			script: if is_nmonster()			then	false
-			else	if card.tipo_de_carta=="dragones legendarios"	then	false
-			else							true
-
-	defensa:
-		z index: 4
-		left:	497
-		top:	938
-		width:	173
-		height:	48
-		z index: 2
-		alignment: right middle shrink-overflow
-		font:
-			name: MatrixRegularSmallCaps
-			size: 43
-			color: rgb(0,0,0)
-		symbol font:
-			name: yugioh-text-replacements
-			alignment: middle center
-			size: 24
-		visible:
-			script: if is_nmonster()			then	false
-			else	if card.tipo_de_carta=="dragones legendarios"	then	false
-			else							true
-
-	############################# Card sorting / numbering
-	############################# Copyright stuff
-############################################################## Extra card fields
-
-extra card field:
-	type: text
-	name: descripción
-	multi line: true
-	show statistics: false
-	script: text_filter(value)
-
-extra card field:
-	type: text
-	name: flavor stuff
-	multi line: true
-	show statistics: false
-	script: flavor_text_filter(value)
-
-extra card style:
-
 	descripción:
-		left: 60
-		top: 880
-		width: 
-			script: if is_nmonster() then 630
-			else			      260
-		height: 100
+		left:	{ if is_nmonster() then 64 else 53 }
+		top:	877
+		width:
+			script: if is_nmonster() then	630
+			else							276
+		height:	100
 		font:
 			name: Palatino Linotype
 			italic name: Palatino Linotype Italic
@@ -236,40 +158,112 @@ extra card style:
 			size: 16
 		alignment:	top left
 		z index: 3
-		padding left:   2
-		padding top:    2
-		padding right:  -3
-		padding bottom: 0
+		padding left:	2
+		padding top:	2
+		padding right:	-3
+		padding bottom:	0
 		line height hard: 1.0
 		line height line: 1.0
 		line height soft: 0.9
 		line height hard max: 1.2
 		line height line max: 1.2
 
+	############################# Edition and Card ID
+
+	número:
+		left:	460
+		top:	828
+		width:	240
+		height:	56
+		z index: 2
+		alignment: top right
+		font:
+			name: Arial
+			size: 18
+			color: rgb(0,0,0)
+
+	############################# Text box
+	############################# Attack/Defense
+
+	ataque:
+		left:	515
+		top:	861
+		width:	161
+		height:	48
+		z index: 2
+		alignment: right middle shrink-overflow
+		font:
+			name: MatrixRegularSmallCaps
+			size: 51.5
+			color: rgb(0,0,0)
+		symbol font:
+			name: yugioh-text-replacements
+			alignment: middle center
+			size: 24
+		visible:
+			script: if is_nmonster()								then	false
+			else	if card.tipo_de_carta=="dragones legendarios"	then	false
+			else															true
+
+	defensa:
+		z index: 4
+		left:	515
+		top:	937
+		width:	161
+		height:	48
+		z index: 2
+		alignment: right middle shrink-overflow
+		font:
+			name: MatrixRegularSmallCaps
+			size: 51.5
+			color: rgb(0,0,0)
+		symbol font:
+			name: yugioh-text-replacements
+			alignment: middle center
+			size: 24
+		visible:
+			script: if is_nmonster()								then	false
+			else	if card.tipo_de_carta=="dragones legendarios"	then	false
+			else															true
+
+	############################# Card sorting / numbering
+	############################# Copyright stuff
+############################################################## Extra card fields
+
+extra card field:
+	type: text
+	name: flavor stuff
+	multi line: true
+	show statistics: false
+	script: flavor_text_filter(value)
+
+extra card style:
+
 	flavor stuff:
 		left: 
-			script: if card.tipo_de_carta=="dragones legendarios" then 394
-			else						     120
+			script: if card.tipo_de_carta=="dragones legendarios" then	394
+			else														120
 		top: 
-			script: if card.tipo_de_carta=="dragones legendarios" then 860
-			else						     150
+			script: if card.tipo_de_carta=="dragones legendarios" then	860
+			else if is_nmonster() then									146
+			else														166
 		width: 
-			script: if card.tipo_de_carta=="dragones legendarios" then 276
-			else						    504
+			script: if card.tipo_de_carta=="dragones legendarios" then	280
+			else														510
 		height: 
-			script: if card.tipo_de_carta=="dragones legendarios" then 140
-			else						    30
+			script: if card.tipo_de_carta=="dragones legendarios" then	135
+			else if is_nmonster() then									35
+			else														30
 		font:
 			name: Palatino Linotype
 			italic name: Palatino Linotype Italic
-			size: 16
+			size: { if is_nmonster() then 18 else 16 }
 			scale down to: 4
 			color: rgb(0,0,0)
 		symbol font:
 			name: yugioh-text-replacements
 			alignment: middle center
 			size: 16
-		alignment:	top left
 		z index: 2
 		padding left:   2
 		padding top:    2
