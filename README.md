@@ -3,7 +3,7 @@
 Yu-Gi-Oh! Complete Package template for Magic Set Editor reworked in HD and Spanish.
 
 Currently some graphics are kinda low quality, I'm in the process of reworking or searching for others with better quality. I've replaced several ones with better quality ones which should improve graphics.  
-Also, MSE will now export the custom cards at 697x1016 which at 300dpi is 59mm x 86mm.
+Also, MSE will now export the custom cards at 697x1016 which at 300dpi is 59mm x 86mm for Standard and Pendulum templates. Bandai style is 
 
 When I have been translating the English strings into Spanish I've encountered some errors in the original formatting of the template which I've fixed. Well, I've edited almost everything about sizes so I had to fix them when I was reworking that.  
 There is currently at least one string (iirc) that I couldn't translate: "card".  
@@ -16,13 +16,13 @@ One complain tho, MSE is painful to work with when creating templates. I want to
 
 - Standard
 - Standard Pendulum
+- Bandai
 
 ## Unfinished templates (Either I'm still working on them or I haven't started yet):
 
 - Standard Extra [It's currently harder than I thought with things not being fully implemented and other thing wrong on the original template]
 - Comic
 - TV Show
-- Bandai
 - Evolution
 - Zotoshi
 - CBG Style
@@ -32,6 +32,7 @@ One complain tho, MSE is painful to work with when creating templates. I want to
 - For Standard template: 498x502
 - For Pendulum template: 614x462
 - For Standard Extra template: 498x502, if choose no image frame then 528x529
+- For Bandai template: 516x602
 
 <br>
 
@@ -49,15 +50,19 @@ If I find the time I will translate this readme into Spanish, I'm lazy af :grin:
     - Added Standard Pendulum template.
     - Added Standard Pendulum resources with high quality.
     - Fixed bad symbols size.
-- v0.3  **[Unreleased - WIP - Planned]**
-    - Added Standard Extra template.
-    - Added Standard Extra resources in high quality.
-    - Added new custom attributes to the Standard Extra template, replacing the old custom ones as I don't have them in high quality nor did I found them on the Internet. Credits for the new awesome custom attributes goes to GraysoGoodwn from DevianArt.
+- v0.3  
+    - Added Bandai style.
+    - Added Bandai resources in high quality.
     - Improved the translation of some strings.
-    - Fixed some words left untranslated.
+    - Fixed monster type text not shrinking when it was bigger than max width.
+    - Fixed some words left untranslated and some that shouldn't have been.
     - Fixed the foil stamps of Pendulum cards, they weren't properly configured. 
     - Fixed position of foils on the Standard template, it was a little off.
     - Fixed Attribute not changing automatically when choosing Spell and Trap card types.
+- v0.x **[Unreleased - WIP - Planned]**
+    - Added Standard Extra template.
+    - Added Standard Extra resources in high quality.
+    - Added new custom attributes to the Standard Extra template, replacing the old custom ones as I don't have them in high quality nor did I found them on the Internet. Credits for the new awesome custom attributes goes to GraysoGoodwn from DevianArt.
 
 
 ## Known Glitches <small>(yeah, you read it right)</small>
