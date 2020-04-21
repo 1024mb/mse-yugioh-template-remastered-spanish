@@ -1,0 +1,282 @@
+mse version: 2.0.0
+game: yugioh
+short name: Bandai
+installer group: Yugioh/Bandai style
+icon: card-sample.png
+position hint: 04
+
+version: 2014-01-26
+depends on:
+	package: yugioh.mse-game
+	version: 2020-03-31
+depends on:
+	package: yugioh-bandai-levels.mse-symbol-font
+	version: 2008-05-19
+depends on:
+	package: yugioh-text-replacements.mse-symbol-font
+	version: 2014-03-11
+
+card width: 756
+card height: 1039
+card dpi: 300
+
+############################################################## Extra scripts
+############################################################## Extra style
+############################################################## Card fields
+
+card style:
+
+	############################# Background stuff
+
+	tipo de carta:
+		left:	0
+		top:	0
+		width:	756
+		height:	1039
+		z index: -2
+		render style: image
+		popup style: in place
+		choice images:
+			monstruo normal:	   card-monster.png
+			monstruo de efecto:	   card-monster.png
+			monstruo de ritual:	   card-monster.png
+			monstruo de sincronía: card-monster.png
+			monstruo de sincronía oscura:	card-monster.png
+			monstruo de fusión:	   card-monster.png
+			ficha de monstruo:	   card-monster.png
+			obelisco: 	   card-monster.png
+			slifer: 	   card-monster.png
+			ra:	 	   card-monster.png
+			dragones legendarios: card-player.png
+			carta mágica:	   card-non-monster.png
+			carta de trampa:	   card-non-monster.png
+			monstruo xyz:					card-monster.png
+
+	############################# Name line
+
+	nombre:
+		left: 90
+		top: 64
+		width: 510
+		height: 55
+		alignment: middle shrink-overflow
+		padding left:   0
+		padding top:    0
+		padding right:  0
+		padding bottom: 0
+		z index: 2
+		font:
+			name: MatrixRegularSmallCaps
+			size: 48
+			color: 
+				script: if card.tipo_de_carta=="dragones legendarios"	then	rgb(255,0,0)
+				else							rgb(255,255,255)
+
+	atributo:
+		left: 604
+		top: 64
+		width: 90
+		height: 72
+		z index: 2
+		render style: image
+		popup style: in place
+		choice images:
+			tierra: earth.png
+			agua: water.png
+			fuego: fire.png
+			viento: wind.png
+			luz: light.png
+			oscuridad: dark.png
+			divinidad: divine.png
+			mágica: spell.png
+			trampa: trap.png
+
+	nivel:
+		left: 90
+		top: 193
+		height: 50
+		width: 570
+		z index: 4
+		alignment: middle center
+		font:
+			name: MatrixRegularSmallCaps
+			italic name: Matrix
+			size: 36
+			color: rgb(0,0,0)
+		symbol font:
+			name: yugioh-bandai-levels
+			alignment: middle center
+			scale down to: 1
+			size: 7.5
+		always symbol: true
+
+	############################# Image
+
+	ilustración:
+		left:	120
+		top:	217
+		width: 516
+		height:	602
+		z index: 1
+
+	############################# Card type
+
+	tipo de monstruo:
+		left: 120
+		top: 
+			script: if is_nmonster() then 812 else 140
+		width: 504
+		height: 28
+		alignment: top center
+		z index: 3
+		font:
+			name: MatrixRegularSmallCaps
+			italic name: Matrix
+			size: 24
+			color: rgb(0,0,0)
+		symbol font:
+			name: yugioh-text-replacements
+			alignment: middle center
+			size: 8.5
+
+	############################# Edition and Card ID
+
+	número:
+		left: 460
+		top: 828
+		width: 240
+		height: 56
+		z index: 2
+		alignment: top right
+		font:
+			name: Arial
+			size: 18
+			color: rgb(0,0,0)
+
+	############################# Text box
+	############################# Attack/Defense
+
+	ataque:
+		left:	497
+		top:	862
+		width:	173
+		height:	48
+		z index: 2
+		alignment: right middle shrink-overflow
+		font:
+			name: MatrixRegularSmallCaps
+			size: 43
+			color: rgb(0,0,0)
+		symbol font:
+			name: yugioh-text-replacements
+			alignment: middle center
+			size: 24
+		visible:
+			script: if is_nmonster()			then	false
+			else	if card.tipo_de_carta=="dragones legendarios"	then	false
+			else							true
+
+	defensa:
+		z index: 4
+		left:	497
+		top:	938
+		width:	173
+		height:	48
+		z index: 2
+		alignment: right middle shrink-overflow
+		font:
+			name: MatrixRegularSmallCaps
+			size: 43
+			color: rgb(0,0,0)
+		symbol font:
+			name: yugioh-text-replacements
+			alignment: middle center
+			size: 24
+		visible:
+			script: if is_nmonster()			then	false
+			else	if card.tipo_de_carta=="dragones legendarios"	then	false
+			else							true
+
+	############################# Card sorting / numbering
+	############################# Copyright stuff
+############################################################## Extra card fields
+
+extra card field:
+	type: text
+	name: descripción
+	multi line: true
+	show statistics: false
+	script: text_filter(value)
+
+extra card field:
+	type: text
+	name: flavor stuff
+	multi line: true
+	show statistics: false
+	script: flavor_text_filter(value)
+
+extra card style:
+
+	descripción:
+		left: 60
+		top: 880
+		width: 
+			script: if is_nmonster() then 630
+			else			      260
+		height: 100
+		font:
+			name: Palatino Linotype
+			italic name: Palatino Linotype Italic
+			size: 16
+			scale down to: 8
+			color: rgb(0,0,0)
+		symbol font:
+			name: yugioh-text-replacements
+			alignment: middle center
+			size: 16
+		alignment:	top left
+		z index: 3
+		padding left:   2
+		padding top:    2
+		padding right:  -3
+		padding bottom: 0
+		line height hard: 1.0
+		line height line: 1.0
+		line height soft: 0.9
+		line height hard max: 1.2
+		line height line max: 1.2
+
+	flavor stuff:
+		left: 
+			script: if card.tipo_de_carta=="dragones legendarios" then 394
+			else						     120
+		top: 
+			script: if card.tipo_de_carta=="dragones legendarios" then 860
+			else						     150
+		width: 
+			script: if card.tipo_de_carta=="dragones legendarios" then 276
+			else						    504
+		height: 
+			script: if card.tipo_de_carta=="dragones legendarios" then 140
+			else						    30
+		font:
+			name: Palatino Linotype
+			italic name: Palatino Linotype Italic
+			size: 16
+			scale down to: 4
+			color: rgb(0,0,0)
+		symbol font:
+			name: yugioh-text-replacements
+			alignment: middle center
+			size: 16
+		alignment:	top left
+		z index: 2
+		padding left:   2
+		padding top:    2
+		padding right:  -3
+		padding bottom: 0
+		line height hard: 1.0
+		line height line: 1.0
+		line height soft: 0.9
+		line height hard max: 1.2
+		line height line max: 1.2
