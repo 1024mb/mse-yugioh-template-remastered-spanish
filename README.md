@@ -50,7 +50,7 @@ If I find the time I will translate this readme into Spanish, I'm lazy af :grin:
     - Added Standard Pendulum template.
     - Added Standard Pendulum resources with high quality.
     - Fixed bad symbols size.
-- v0.3 **[Still unreleased]**  
+- v0.3 
     - Added Bandai style.
     - Added Bandai resources in high quality.
     - Improved the translation of some strings.
